@@ -22,5 +22,5 @@ public class Book {
     @NotNull
     private String name;
     private String author;
-
+    private String status;
 }
