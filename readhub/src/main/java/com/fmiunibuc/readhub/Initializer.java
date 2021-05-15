@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 import java.util.stream.Stream;
 
+/*
 @Component
 public class Initializer implements CommandLineRunner {
     private final LibraryRepository libraryRepository;
@@ -47,3 +48,5 @@ public class Initializer implements CommandLineRunner {
         shelfRepository.findAll().forEach(System.out::println);
     }
 }
+*/
+

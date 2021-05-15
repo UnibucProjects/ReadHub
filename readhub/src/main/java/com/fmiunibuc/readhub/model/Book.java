@@ -22,6 +22,7 @@ public class Book {
     @NotNull
     private String name;
     private String author;
+    private int pages;
     @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private List<BookCopy> copyList;
 }
