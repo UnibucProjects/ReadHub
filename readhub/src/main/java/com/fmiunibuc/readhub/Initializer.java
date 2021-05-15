@@ -27,10 +27,12 @@ public class Initializer implements CommandLineRunner {
                 .forEach(name -> libraryRepository.save(new Library(name)));
         Book algebraBook = Book.builder().name("Linear algebra done right").author("Sheldon Axler").build();
         Book geometryBook = Book.builder().name("Euclid's elements of geometry").author("Euclid").build();
+        BookCopy algebraBookCopy = BookCopy.builder().bookType(algebraBook).build();
+        BookCopy geometryBookCopy = BookCopy.builder().bookType(geometryBook).build();
         Shelf dianaShelf = shelfRepository.findByName("Diana's math books");
         Shelf ioanaShelf = shelfRepository.findByName("Ioana's math books");
-        dianaShelf.setBooks(Collections.singleton(algebraBook));
-        ioanaShelf.setBooks(Collections.singleton(geometryBook));
+        dianaShelf.setBooks(Collections.singleton(algebraBookCopy));
+        ioanaShelf.setBooks(Collections.singleton(geometryBookCopy));
         shelfRepository.save(dianaShelf);
         shelfRepository.save(ioanaShelf);
         Library dianaLibrary = libraryRepository.findByName("Diana's Library"); //aici e NPE

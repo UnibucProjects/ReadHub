@@ -18,8 +18,8 @@ public class Shelf {
     private Long id;
     @NonNull
     private String name;
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<Book> books;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<BookCopy> books;
     @ManyToOne(cascade=CascadeType.PERSIST)
     private Library library;
 }
