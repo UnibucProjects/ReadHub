@@ -30,7 +30,7 @@ public class BookCopyController {
     }
 
     @GetMapping("/bookCopy/{id}")
-    ResponseEntity<?> getBook(@PathVariable Long id) {
+    ResponseEntity<?> getBookCopy(@PathVariable Long id) {
         Optional<BookCopy> bookCopy = bookCopyRepository.findById(id);
         return bookCopy.map(response -> ResponseEntity.ok().body(response))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
