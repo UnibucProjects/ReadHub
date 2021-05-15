@@ -12,6 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
+@Table(name="Book_Copy")
 public class BookCopy {
     @GeneratedValue
     @Id

@@ -1,7 +1,7 @@
 package com.fmiunibuc.readhub.web;
 
 import com.fmiunibuc.readhub.model.Library;
-import com.fmiunibuc.readhub.model.LibraryRepository;
+import com.fmiunibuc.readhub.model.repositories.LibraryRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

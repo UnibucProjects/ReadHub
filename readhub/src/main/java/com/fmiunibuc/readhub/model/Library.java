@@ -11,6 +11,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @Entity
+@Table(name="Library")
 public class Library {
     @Id
     @GeneratedValue
