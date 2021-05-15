@@ -1,6 +1,8 @@
 package com.fmiunibuc.readhub;
 
 import com.fmiunibuc.readhub.model.*;
+import com.fmiunibuc.readhub.model.repositories.LibraryRepository;
+import com.fmiunibuc.readhub.model.repositories.ShelfRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

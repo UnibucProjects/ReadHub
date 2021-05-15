@@ -14,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
+@Table(name="Books")
 public class Book {
     @Id
     @GeneratedValue

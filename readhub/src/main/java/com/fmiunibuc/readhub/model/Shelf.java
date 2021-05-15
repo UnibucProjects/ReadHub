@@ -12,6 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @Entity
+@Table(name="Shelf")
 public class Shelf {
     @Id
     @GeneratedValue
