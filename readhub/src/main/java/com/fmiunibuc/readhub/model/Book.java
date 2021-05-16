@@ -1,10 +1,6 @@
 package com.fmiunibuc.readhub.model;
 
-import com.sun.istack.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,9 +15,11 @@ public class Book {
     @Id
     @GeneratedValue
     private Long id;
-    @NotNull
+    @NonNull
     private String name;
+    @NonNull
     private String author;
+    @NonNull
     private int pages;
     @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private List<BookCopy> copyList;

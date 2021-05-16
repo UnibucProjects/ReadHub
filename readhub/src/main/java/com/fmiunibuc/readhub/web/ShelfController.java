@@ -1,8 +1,6 @@
 package com.fmiunibuc.readhub.web;
 
-import com.fmiunibuc.readhub.model.Library;
 import com.fmiunibuc.readhub.model.Shelf;
-import com.fmiunibuc.readhub.model.repositories.LibraryRepository;
 import com.fmiunibuc.readhub.model.repositories.ShelfRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +38,7 @@ public class ShelfController {
     }
 
     @PostMapping("/shelf")
-    ResponseEntity<Shelf> createLibrary(@Valid @RequestBody Shelf shelf) throws URISyntaxException {
+    ResponseEntity<Shelf> createShelf(@Valid @RequestBody Shelf shelf) throws URISyntaxException {
         log.info("Request to create shelf: {}", shelf);
         Shelf result = shelfRepository.save(shelf);
         return ResponseEntity.created(new URI("/api/shelf/" + result.getId()))
