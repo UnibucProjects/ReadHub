@@ -3,54 +3,51 @@ import { Button, ButtonGroup, Container, Table } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
 
-class LibraryList extends Component {
+class BookList extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {libraries: [], isLoading: true};
+        this.state = {books: [], isLoading: true};
         this.remove = this.remove.bind(this);
     }
 
     componentDidMount() {
         this.setState({isLoading: true});
 
-        fetch('api/libraries')
+        fetch('api/books')
             .then(response => response.json())
-            .then(data => this.setState({libraries: data, isLoading: false}));
+            .then(data => this.setState({books: data, isLoading: false}));
     }
 
     async remove(id) {
-        await fetch(`/api/library/${id}`, {
+        await fetch(`/api/book/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
         }).then(() => {
-            let updatedLibraries = [...this.state.libraries].filter(i => i.id !== id);
-            this.setState({libraries: updatedLibraries});
+            let updatedBooks = [...this.state.books].filter(i => i.id !== id);
+            this.setState({books: updatedBooks});
         });
     }
 
     render() {
-        const {libraries, isLoading} = this.state;
+        const {books, isLoading} = this.state;
 
         if (isLoading) {
             return <p>Loading...</p>;
         }
 
-        const libraryList = libraries.map(library => {
-            const ownerName = `${"Owner name" || ''}`;
-            return <tr key={library.id}>
-                <td style={{whiteSpace: 'nowrap'}}>{library.name}</td>
-                <td>{ownerName}</td>
-                <td>{library.shelfList.map(shelf => {
-                    return <div key={shelf.id}>{shelf.name}</div>
-                })}</td>
+        const bookList = books.map(book => {
+            return <tr key={book.id}>
+                <td style={{whiteSpace: 'nowrap'}}>{book.name}</td>
+                <td>{book.author}</td>
+                <td>{book.pages}</td>
                 <td>
                     <ButtonGroup>
-                        <Button size="sm" color="primary" tag={Link} to={"/libraries/" + library.id}>Edit</Button>
-                        <Button size="sm" color="danger" onClick={() => this.remove(library.id)}>Delete</Button>
+                        <Button size="sm" color="primary" tag={Link} to={"/books/" + book.id}>Edit</Button>
+                        <Button size="sm" color="danger" onClick={() => this.remove(book.id)}>Delete</Button>
                     </ButtonGroup>
                 </td>
             </tr>
@@ -61,20 +58,20 @@ class LibraryList extends Component {
                 <AppNavbar/>
                 <Container fluid>
                     <div className="float-right">
-                        <Button color="success" tag={Link} to="/libraries/new">Add Library</Button>
+                        <Button color="success" tag={Link} to="/books/new">Add Book</Button>
                     </div>
-                    <h3>My libraries</h3>
+                    <h3>My shelves</h3>
                     <Table className="mt-4">
                         <thead>
                         <tr>
                             <th width="20%">Name</th>
-                            <th width="20%">Owner</th>
-                            <th>Shelves</th>
+                            <th width="20%">Author</th>
+                            <th width="20%">Pages</th>
                             <th width="10%">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        {libraryList}
+                        {bookList}
                         </tbody>
                     </Table>
                 </Container>
@@ -83,4 +80,4 @@ class LibraryList extends Component {
     }
 }
 
-export default LibraryList;
+export default BookList;

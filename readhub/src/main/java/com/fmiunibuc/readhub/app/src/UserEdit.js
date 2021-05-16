@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 
-class LibraryEdit extends Component {
+class UserEdit extends Component {
 
     emptyItem = {
         name: ''
@@ -20,8 +20,8 @@ class LibraryEdit extends Component {
 
     async componentDidMount() {
         if (this.props.match.params.id !== 'new') {
-            const library = await (await fetch(`/api/library/${this.props.match.params.id}`)).json();
-            this.setState({item: library});
+            const user = await (await fetch(`/api/user/${this.props.match.params.id}`)).json();
+            this.setState({item: user});
         }
     }
 
@@ -38,7 +38,7 @@ class LibraryEdit extends Component {
         event.preventDefault();
         const {item} = this.state;
 
-        await fetch('/api/library' + (item.id ? '/' + item.id : ''), {
+        await fetch('/api/user' + (item.id ? '/' + item.id : ''), {
             method: (item.id) ? 'PUT' : 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -46,12 +46,12 @@ class LibraryEdit extends Component {
             },
             body: JSON.stringify(item),
         });
-        this.props.history.push('/libraries');
+        this.props.history.push('/users');
     }
 
     render() {
         const {item} = this.state;
-        const title = <h2>{item.id ? 'Edit Library' : 'Add Library'}</h2>;
+        const title = <h2>{item.id ? 'Edit User' : 'Add User'}</h2>;
 
         return <div>
             <AppNavbar/>
@@ -62,11 +62,15 @@ class LibraryEdit extends Component {
                         <Label for="name">Name</Label>
                         <Input type="text" name="name" id="name" value={item.name || ''}
                                onChange={this.handleChange} autoComplete="name"/>
+
+                        <Label for="email">Email</Label>
+                        <Input type="text" name="email" id="email" value={item.email || ''}
+                               onChange={this.handleChange} autoComplete="email"/>
                     </FormGroup>
 
                     <FormGroup>
                         <Button color="primary" type="submit">Save</Button>{' '}
-                        <Button color="secondary" tag={Link} to="/libraries">Cancel</Button>
+                        <Button color="secondary" tag={Link} to="/users">Cancel</Button>
                     </FormGroup>
                 </Form>
             </Container>
@@ -74,4 +78,4 @@ class LibraryEdit extends Component {
     }
 }
 
-export default withRouter(LibraryEdit);
+export default withRouter(UserEdit);

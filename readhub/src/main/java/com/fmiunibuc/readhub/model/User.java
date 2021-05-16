@@ -1,9 +1,9 @@
 package com.fmiunibuc.readhub.model;
 
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import javax.persistence.*;
 
@@ -15,7 +15,7 @@ import javax.persistence.*;
 public class User {
     @Id
     private Long id;
-    @NotNull
+    @NonNull
     private String name;
     private String email;
     @OneToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)

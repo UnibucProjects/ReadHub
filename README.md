@@ -11,9 +11,9 @@
 * As a reader, I want to rate a book 
 * As a reader, I want to set reading goals through the year
 * As a reader, I want to see progress charts (how many pages/day/month/year)
-* As a reader, I want to get recommandations 
+* As a reader, I want to get recommendations 
 * As an admin, I want to CRUD all entities
-* As a reader, I want to view my stats (longest book I read, most liked book, least liked book etc.)
+* As a reader, I want to view my stats (the longest book I read, most liked book, least liked book etc.)
 * As an editor, I want to add books and minimal info about them to the database
 
 # Backlog 

@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 
-class LibraryEdit extends Component {
+class BookCopyEdit extends Component {
 
     emptyItem = {
         name: ''
@@ -20,8 +20,8 @@ class LibraryEdit extends Component {
 
     async componentDidMount() {
         if (this.props.match.params.id !== 'new') {
-            const library = await (await fetch(`/api/library/${this.props.match.params.id}`)).json();
-            this.setState({item: library});
+            const bookCopy = await (await fetch(`/api/bookCopy/${this.props.match.params.id}`)).json();
+            this.setState({item: bookCopy});
         }
     }
 
@@ -38,7 +38,7 @@ class LibraryEdit extends Component {
         event.preventDefault();
         const {item} = this.state;
 
-        await fetch('/api/library' + (item.id ? '/' + item.id : ''), {
+        await fetch('/api/bookCopy' + (item.id ? '/' + item.id : ''), {
             method: (item.id) ? 'PUT' : 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -46,12 +46,12 @@ class LibraryEdit extends Component {
             },
             body: JSON.stringify(item),
         });
-        this.props.history.push('/libraries');
+        this.props.history.push('/bookCopies');
     }
 
     render() {
         const {item} = this.state;
-        const title = <h2>{item.id ? 'Edit Library' : 'Add Library'}</h2>;
+        const title = <h2>{item.id ? 'Edit Book Copy' : 'Add Book Copy'}</h2>;
 
         return <div>
             <AppNavbar/>
@@ -60,13 +60,13 @@ class LibraryEdit extends Component {
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
                         <Label for="name">Name</Label>
-                        <Input type="text" name="name" id="name" value={item.name || ''}
+                        <Input type="text" name="name" id="name" value={"Nume" || ''}
                                onChange={this.handleChange} autoComplete="name"/>
                     </FormGroup>
 
                     <FormGroup>
                         <Button color="primary" type="submit">Save</Button>{' '}
-                        <Button color="secondary" tag={Link} to="/libraries">Cancel</Button>
+                        <Button color="secondary" tag={Link} to="/bookCopies">Cancel</Button>
                     </FormGroup>
                 </Form>
             </Container>
@@ -74,4 +74,6 @@ class LibraryEdit extends Component {
     }
 }
 
-export default withRouter(LibraryEdit);
+export default withRouter(BookCopyEdit);
+
+// TODO: add fields for adding/editing

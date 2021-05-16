@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="readhub@localhost" uuid="22671267-9292-4602-9724-385084e2fb09">
+    <data-source source="LOCAL" name="readhub@localhost" uuid="fe758c7c-3af0-4009-88a7-79c25f888773">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/readhub</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
+      <driver-properties>
+        <property name="serverTimezone" value="GMT+2" />
+      </driver-properties>
     </data-source>
   </component>
 </project>
