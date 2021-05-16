@@ -49,4 +49,3 @@ public class Initializer implements CommandLineRunner {
     }
 }
 */
-
