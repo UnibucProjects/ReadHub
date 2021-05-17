@@ -54,7 +54,6 @@ class BookCopyEdit extends Component {
         const title = <h2>{item.id ? 'Edit Book Copy' : 'Add Book Copy'}</h2>;
 
         return <div>
-            <AppNavbar/>
             <Container>
                 {title}
                 <Form onSubmit={this.handleSubmit}>

@@ -54,7 +54,6 @@ class ShelfEdit extends Component {
         const title = <h2>{item.id ? 'Edit Shelf' : 'Add Shelf'}</h2>;
 
         return <div>
-            <AppNavbar/>
             <Container>
                 {title}
                 <Form onSubmit={this.handleSubmit}>

@@ -54,7 +54,6 @@ class UserEdit extends Component {
         const title = <h2>{item.id ? 'Edit User' : 'Add User'}</h2>;
 
         return <div>
-            <AppNavbar/>
             <Container>
                 {title}
                 <Form onSubmit={this.handleSubmit}>
