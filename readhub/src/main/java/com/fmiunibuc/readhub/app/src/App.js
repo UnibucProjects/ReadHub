@@ -13,6 +13,8 @@ import BookCopyList from "./BookCopyList";
 import BookCopyEdit from "./BookCopyEdit";
 import UserList from "./UserList";
 import UserEdit from "./UserEdit";
+import login from "./Login";
+import dashboard from "./Dahboard";
 
 const TITLE = 'ReadHub';
 
@@ -25,7 +27,8 @@ class App extends Component {
             </Helmet>
             <Router>
               <Switch>
-                <Route path='/' exact={true} component={Home}/>
+                <Route path="/" component={login} />
+                <Route path="/dashboard" component={dashboard} />
                 <Route path='/libraries' exact={true} component={LibraryList}/>
                 <Route path='/libraries/:id' component={LibraryEdit}/>
                 <Route path='/shelves' exact={true} component={ShelfList}/>

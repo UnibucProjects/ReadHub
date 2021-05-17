@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.stream.Stream;
-
 /*
 @Component
 public class Initializer implements CommandLineRunner {
@@ -48,4 +47,4 @@ public class Initializer implements CommandLineRunner {
         shelfRepository.findAll().forEach(System.out::println);
     }
 }
-*/
+        */
