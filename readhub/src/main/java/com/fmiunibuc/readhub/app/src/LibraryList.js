@@ -58,7 +58,6 @@ class LibraryList extends Component {
 
         return (
             <div>
-                <AppNavbar/>
                 <Container fluid>
                     <div className="float-right">
                         <Button color="success" tag={Link} to="/libraries/new">Add Library</Button>

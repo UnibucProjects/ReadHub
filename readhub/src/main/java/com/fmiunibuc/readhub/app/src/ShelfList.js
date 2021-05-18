@@ -60,7 +60,6 @@ class ShelfList extends Component {
 
         return (
             <div>
-                <AppNavbar/>
                 <Container fluid>
                     <div className="float-right">
                         <Button color="success" tag={Link} to="/shelves/new">Add Shelf</Button>

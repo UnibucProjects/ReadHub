@@ -55,7 +55,6 @@ class UserList extends Component {
 
         return (
             <div>
-                <AppNavbar/>
                 <Container fluid>
                     <div className="float-right">
                         <Button color="success" tag={Link} to="/users/new">Add User</Button>
