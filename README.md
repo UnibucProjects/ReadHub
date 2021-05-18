@@ -22,11 +22,17 @@ Available at https://trello.com/b/W9Wdh06r/readhub, also in Github projects for 
 # Diagrams
 Design, UML, architecture
 
+## Use Case Diagram
+<img src = "images/UseCaseDiagram.jpg" width = 600>
+
+## Sequence Diagram
+<img src = "images/SequenceDiagram.jpeg" width = 1500>
+
 # Source control
 We used git as a source control system. We each have our branches: alex, delia, diana, ioana and stefan. 
 
 # Tests
-We used Jest for JavaScript abd JUnit for Java unit testing. 
+We used Jest for JavaScript and JUnit for Java unit testing. 
 
 # Bug Reporting
 Bug reporting is done via Github Actions.
