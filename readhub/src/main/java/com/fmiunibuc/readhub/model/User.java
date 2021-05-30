@@ -1,18 +1,11 @@
 package com.fmiunibuc.readhub.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-
-
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(	name = "users",
@@ -37,6 +30,9 @@ public class User {
     @NotBlank
     @Size(max = 120)
     private String password;
+
+    @OneToOne(cascade=CascadeType.ALL)
+    private Library library;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
@@ -91,5 +87,13 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public Library getLibrary() {
+        return this.library;
+    }
+
+    public void setLibrary(Library library) {
+        this.library = library;
     }
 }

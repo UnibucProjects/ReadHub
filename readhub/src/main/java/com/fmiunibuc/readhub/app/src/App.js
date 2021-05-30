@@ -5,12 +5,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 import LibraryList from './LibraryList';
 import LibraryEdit from "./LibraryEdit";
+import MyLibrary from "./MyLibrary";
 import ShelfList from './ShelfList'
 import ShelfEdit from './ShelfEdit'
+import MyShelf from './MyShelf';
 import BookList from "./BookList";
 import BookEdit from "./BookEdit";
 import BookCopyList from "./BookCopyList";
 import BookCopyEdit from "./BookCopyEdit";
+import MyBookCopy from "./MyBookCopy";
 import UserList from "./UserList";
 import UserEdit from "./UserEdit";
 import AuthService from "./services/auth.service";
@@ -54,6 +57,12 @@ class App extends Component {
     render() {
         const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
 
+        const isAuthenticated = showModeratorBoard && showAdminBoard;
+        let id = 0;
+        if(isAuthenticated) {
+            id = currentUser.id;
+        }
+
         return (
             <>
             <Helmet>
@@ -65,6 +74,12 @@ class App extends Component {
                         {TITLE}
                     </Link>
                     <div className="navbar-nav mr-auto">
+
+                        {isAuthenticated && (<li className="nav-item">
+                            <Link to={"/myLibrary/" + id} className="nav-link">
+                                My library
+                            </Link>
+                        </li>)}
 
                         {showAdminBoard && (<li className="nav-item">
                             <Link to={"/libraries"} className="nav-link">
@@ -134,12 +149,15 @@ class App extends Component {
                         <Route path="/admin" component={BoardAdmin} />
                         <Route path='/libraries' exact={true} component={LibraryList}/>
                         <Route path='/libraries/:id' component={LibraryEdit}/>
+                        <Route path='/myLibrary/:id' component={MyLibrary}/>
                         <Route path='/shelves' exact={true} component={ShelfList}/>
+                        <Route path='/shelf/:id' component={MyShelf}/>
                         <Route path='/shelves/:id' component={ShelfEdit}/>
                         <Route path='/books' exact={true} component={BookList}/>
                         <Route path='/books/:id' component={BookEdit}/>
                         <Route path='/bookCopies' exact={true} component={BookCopyList}/>
                         <Route path='/bookCopies/:id' component={BookCopyEdit}/>
+                        <Route path='/myBookCopy/:id' component={MyBookCopy}/>
                     </Switch>
                 </div>
             </div>

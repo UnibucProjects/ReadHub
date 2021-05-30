@@ -58,9 +58,12 @@ class BookCopyEdit extends Component {
                 {title}
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
-                        <Label for="name">Name</Label>
-                        <Input type="text" name="name" id="name" value={"Nume" || ''}
-                               onChange={this.handleChange} autoComplete="name"/>
+                        <Label for="status">{item.status}</Label>
+                        <Input type="text" name="status" id="status" value={item.status}
+                               onChange={this.handleChange} autoComplete="status"/>
+                        <Label for="rating">{item.rating}</Label>
+                        <Input type="text" name="rating" id="rating" value={item.rating}
+                               onChange={this.handleChange} autoComplete="rating"/>
                     </FormGroup>
 
                     <FormGroup>
