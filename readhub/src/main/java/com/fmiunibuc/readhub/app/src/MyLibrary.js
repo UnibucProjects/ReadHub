@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
 import { Button, ButtonGroup, Container, Table } from 'reactstrap';
 import {Link, withRouter} from 'react-router-dom';
+import AuthService from "./services/auth.service";
 
 class MyLibrary extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {library: null, isLoading: true};
+        this.state = {library: null, isLoading: true, currentUser: null};
     }
 
     async componentDidMount() {
+        const user = AuthService.getCurrentUser();
+        console.log(user);
         this.setState({isLoading: true});
-        await fetch('api/myLibrary/' + this.props.match.params.id)
+        await fetch(`/api/library/${this.props.match.params.id}`)
             .then(response => response.json())
-            .then(data => this.setState({library: data, isLoading: false}));
+            .then(data => this.setState({library: data, isLoading: false, currentUser:user}));
     }
 
     render() {
-        const {library, isLoading} = this.state;
+        const {library, isLoading, user} = this.state;
 
         if (isLoading) {
             return <p>Loading...</p>;
@@ -39,7 +42,7 @@ class MyLibrary extends Component {
         const userId = this.props.match.params.id;
         const shelvesList = library.shelfList.map(shelf => {
             return <tr key={library.id}>
-                <td style={{whiteSpace: 'nowrap'}}><Link to={"/shelf/" + userId + "/" + shelf.id}>{shelf.name}</Link></td>
+                <td style={{whiteSpace: 'nowrap'}}><Link to={"/shelf/" + user.id + "/" + shelf.id}>{shelf.name}</Link></td>
                 <td>
                     <ButtonGroup>
                         <Button size="sm" color="primary" tag={Link} to={"/shelves/" + shelf.id}>Edit</Button>

@@ -32,6 +32,7 @@ class App extends Component {
         this.logOut = this.logOut.bind(this);
 
         this.state = {
+            showUserBoard: false,
             showModeratorBoard: false,
             showAdminBoard: false,
             currentUser: undefined,
@@ -44,6 +45,7 @@ class App extends Component {
         if (user) {
             this.setState({
                 currentUser: user,
+                showUserBoard: user.roles.includes("ROLE_USER"),
                 showModeratorBoard: user.roles.includes("ROLE_MODERATOR"),
                 showAdminBoard: user.roles.includes("ROLE_ADMIN"),
             });
@@ -55,9 +57,9 @@ class App extends Component {
     }
 
     render() {
-        const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
+        const { currentUser, showUserBoard, showModeratorBoard, showAdminBoard } = this.state;
 
-        const isAuthenticated = showModeratorBoard && showAdminBoard;
+        const isAuthenticated = showUserBoard;
         let id = 0;
         if(isAuthenticated) {
             id = currentUser.id;
@@ -158,6 +160,8 @@ class App extends Component {
                         <Route path='/bookCopies' exact={true} component={BookCopyList}/>
                         <Route path='/bookCopies/:id' component={BookCopyEdit}/>
                         <Route path='/myBookCopy/:id' component={MyBookCopy}/>
+                        <Route path="/users" exact={true}  component={UserList} />
+                        <Route path="/users/:id" component={UserEdit} />
                     </Switch>
                 </div>
             </div>

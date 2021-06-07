@@ -1,5 +1,6 @@
 package com.fmiunibuc.readhub.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,8 +20,10 @@ public class Shelf {
     private Long id;
     @NonNull
     private String name;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("shelf")
     private Set<BookCopy> books;
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("shelfList")
     private Library library;
 }
