@@ -1,9 +1,15 @@
 package com.fmiunibuc.readhub.web;
 
+import com.fmiunibuc.readhub.model.BookCopy;
+import com.fmiunibuc.readhub.model.Library;
 import com.fmiunibuc.readhub.model.Shelf;
+import com.fmiunibuc.readhub.model.User;
+import com.fmiunibuc.readhub.model.repositories.BookCopyRepository;
 import com.fmiunibuc.readhub.model.repositories.ShelfRepository;
+import com.fmiunibuc.readhub.model.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +19,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.Optional;
+import java.util.Set;
 
 
 @RestController
@@ -20,6 +27,8 @@ import java.util.Optional;
 public class ShelfController {
     private final Logger log = LoggerFactory.getLogger(ShelfController.class);
     private ShelfRepository shelfRepository;
+    private BookCopyRepository bookCopyRepository;
+    private UserRepository userRepository;
 
     public ShelfController(ShelfRepository shelfRepository) {
         this.shelfRepository = shelfRepository;
@@ -35,6 +44,38 @@ public class ShelfController {
         Optional<Shelf> shelf = shelfRepository.findById(id);
         return shelf.map(response -> ResponseEntity.ok().body(response))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping("/myShelves/{userId}/{bookId}")
+    Collection<Shelf> myShelves(@PathVariable Long userId, @PathVariable Long bookId) {
+        Optional<User> user = userRepository.findById(userId);
+        Library library = null;
+        if(user.isPresent()) {
+            library = user.get().getLibrary();
+        }
+
+        if(library != null) {
+            return library.getShelfList();
+        }
+
+        return null;
+    }
+
+    @GetMapping("/addBookToShelf/{shelfId}/{bookId}/{userId}")
+    ResponseEntity addBookToShelf(@PathVariable Long shelfId, @PathVariable Long bookId, @PathVariable Long userId) throws URISyntaxException {
+        Optional<Shelf> shelf = shelfRepository.findById(shelfId);
+        Optional<BookCopy> book = bookCopyRepository.findById(bookId);
+
+        if(shelf.isPresent() && book.isPresent()) {
+            Set<BookCopy> books = shelf.get().getBooks();
+            books.add(book.get());
+        }
+
+        Shelf result = shelf.get();
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Location", "localhost:3000/shelf/" + userId + "/" + shelfId);
+
+        return new ResponseEntity(headers, HttpStatus.FOUND);
     }
 
     @PostMapping("/shelf")

@@ -1,5 +1,6 @@
 package com.fmiunibuc.readhub.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,8 +21,10 @@ public class BookCopy {
     private String status;
     private Long pagesRead;
     private Integer rating;
-    @ManyToOne(cascade= CascadeType.PERSIST)
+    @ManyToOne(cascade= CascadeType.PERSIST,  fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("copyList")
     private Book bookType;
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(cascade=CascadeType.PERSIST,  fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("books")
     private Shelf shelf;
 }

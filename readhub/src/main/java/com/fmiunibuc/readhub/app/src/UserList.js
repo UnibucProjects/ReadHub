@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button, ButtonGroup, Container, Table } from 'reactstrap';
-import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
 
 class UserList extends Component {
@@ -41,9 +40,8 @@ class UserList extends Component {
 
         const userList = users.map(user => {
             return <tr key={user.id}>
-                <td style={{whiteSpace: 'nowrap'}}>{user.name}</td>
+                <td style={{whiteSpace: 'nowrap'}}>{user.username}</td>
                 <td>{user.email}</td>
-                <td>{user.library.name}</td>
                 <td>
                     <ButtonGroup>
                         <Button size="sm" color="primary" tag={Link} to={"/users/" + user.id}>Edit</Button>
@@ -65,8 +63,6 @@ class UserList extends Component {
                         <tr>
                             <th width="20%">Name</th>
                             <th width="20%">Email</th>
-                            <th width="20%">Library</th>
-                            <th width="10%">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
