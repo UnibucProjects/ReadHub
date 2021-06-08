@@ -44,8 +44,9 @@ The build tool of our choice was Maven, as we wanted:
 * continuous builds, integration, and testing
 
 # Coding standards
-Airbnb coding standards  for JS: 
-* https://github.com/airbnb/javascript
+* Airbnb coding standards for JS where imposed via ESlint (https://github.com/airbnb/javascript)
+* We also used Prettier next to the linter for formatting rules (eg: max-len, no-mixed-spaces-and-tabs, keyword-spacing, comma-style)
+* for more on how to activate, check the team design document
 
 # Design patterns used
 To be added
