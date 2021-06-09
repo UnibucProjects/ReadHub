@@ -47,7 +47,7 @@ class MyLibrary extends Component {
     const userId = this.props.match.params.id;
     const shelvesList = library.shelfList.map((shelf) => (
       <tr key={library.id}>
-        <td style={{ whiteSpace: 'nowrap' }}><Link to={`/shelf/${user.id}/${shelf.id}`}>{shelf.name}</Link></td>
+        <td style={{ whiteSpace: 'nowrap' }}><Link to={`/shelf/${shelf.id}`}>{shelf.name}</Link></td>
         <td>
           <ButtonGroup>
             <Button size="sm" color="primary" tag={Link} to={`/shelves/${shelf.id}`}>Edit</Button>

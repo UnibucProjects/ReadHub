@@ -30,7 +30,7 @@ public class Library {
     @OneToOne(mappedBy = "library", fetch = FetchType.LAZY)
     @JsonIgnoreProperties("library")
     private User owner;
-    @OneToMany(mappedBy = "id", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "library", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private Set<Shelf> shelfList;
 
     @Override

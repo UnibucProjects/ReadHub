@@ -23,7 +23,7 @@ public class Book {
     private String author;
     @NonNull
     private int pages;
-    @OneToMany(mappedBy = "id", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "bookType", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JsonIgnoreProperties("bookType")
     private List<BookCopy> copyList;
 }
