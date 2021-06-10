@@ -13,6 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name="Book_Copy")
 public class BookCopy {
     @GeneratedValue

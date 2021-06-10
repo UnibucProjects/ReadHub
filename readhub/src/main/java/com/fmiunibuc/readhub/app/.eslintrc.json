@@ -1,0 +1,24 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "react/jsx-filename-extension": [0],
+        "import/extensions": "off",
+        "react/destructuring-assignment": "off",
+        "jsx-a11y/label-has-associated-control": "off"
+    }
+}

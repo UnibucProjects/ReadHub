@@ -11,6 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name="Books")
 public class Book {
     @Id
@@ -22,7 +23,7 @@ public class Book {
     private String author;
     @NonNull
     private int pages;
-    @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "bookType", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JsonIgnoreProperties("bookType")
     private List<BookCopy> copyList;
 }
