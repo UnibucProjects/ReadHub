@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -29,7 +30,7 @@ public class BookCopyController {
         return bookCopyRepository.findAll();
     }
 
-    @GetMapping("/bookCopy/{id}")
+    @GetMapping("/myBookCopy/{id}")
     ResponseEntity<?> getBookCopy(@PathVariable Long id) {
         Optional<BookCopy> bookCopy = bookCopyRepository.findById(id);
         return bookCopy.map(response -> ResponseEntity.ok().body(response))

@@ -41,20 +41,15 @@ class BookCopyList extends Component {
     }
 
     const bookCopyList = bookCopies.map((bookCopy) => {
-      const shelfName = `${'Shelf name' || ''}`;
-      const bookName = `${'Book name' || ''}`;
-      const author = `${'Author name' || ''}`;
       return (
         <tr key={bookCopy.id}>
-          <td style={{ whiteSpace: 'nowrap' }}>{bookName}</td>
-          <td>{bookCopy.author}</td>
-          <td>{shelfName}</td>
+          <td style={{ whiteSpace: 'nowrap' }}><Link to={`/myBookCopy/${bookCopy.id}`}>{bookCopy.bookType.name}</Link></td>
+          <td>{bookCopy.bookType.author}</td>
           <td>{bookCopy.status}</td>
           <td>{bookCopy.pagesRead}</td>
           <td>{bookCopy.rating}</td>
           <td>
             <ButtonGroup>
-              <Button size="sm" color="primary" tag={Link} to={`/bookCopies/${bookCopy.id}`}>Edit</Button>
               <Button size="sm" color="danger" onClick={() => this.remove(bookCopy.id)}>Delete</Button>
             </ButtonGroup>
           </td>
@@ -72,11 +67,10 @@ class BookCopyList extends Component {
           <Table className="mt-4">
             <thead>
               <tr>
-                <th width="20%">Name</th>
-                <th width="20%">Author</th>
-                <th width="20%">Shelf</th>
-                <th width="10%">Status</th>
-                <th width="10%">Pages read</th>
+                <th width="15%">Name</th>
+                <th width="15%">Author</th>
+                <th width="15%">Status</th>
+                <th width="15%">Pages read</th>
                 <th width="10%">Rating</th>
                 <th width="10%">Actions</th>
               </tr>
