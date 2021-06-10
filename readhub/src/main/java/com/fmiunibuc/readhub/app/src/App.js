@@ -24,6 +24,7 @@ import Profile from './components/profile.component';
 import BoardUser from './components/board-user.component';
 import BoardModerator from './components/board-moderator.component';
 import BoardAdmin from './components/board-admin.component';
+import BookCopyStatus from "./BookCopyStatus";
 
 const TITLE = 'ReadHub';
 
@@ -169,6 +170,7 @@ class App extends Component {
               <Route path="/books/:id" component={BookEdit} />
               <Route path="/bookCopies" exact component={BookCopyList} />
               <Route path="/bookCopies/:id" component={BookCopyEdit} />
+              <Route path="/bookCopiesStatus/:id" component={BookCopyStatus} />
               <Route path="/myBookCopy/:id" component={MyBookCopy} />
               <Route path="/users" exact component={UserList} />
               <Route path="/users/:id" component={UserEdit} />
