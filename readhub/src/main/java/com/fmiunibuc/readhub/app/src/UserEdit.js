@@ -58,9 +58,9 @@ class UserEdit extends Component {
                 {title}
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
-                        <Label for="name">Name</Label>
-                        <Input type="text" name="name" id="name" value={item.name || ''}
-                               onChange={this.handleChange} autoComplete="name"/>
+                        <Label for="username">Name</Label>
+                        <Input type="text" name="username" id="username" value={item.username || ''}
+                               onChange={this.handleChange} autoComplete="username"/>
 
                         <Label for="email">Email</Label>
                         <Input type="text" name="email" id="email" value={item.email || ''}

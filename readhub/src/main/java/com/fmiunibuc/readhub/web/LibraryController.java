@@ -14,7 +14,6 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -24,8 +23,9 @@ public class LibraryController {
     private LibraryRepository libraryRepository;
     private UserRepository userRepository;
 
-    public LibraryController(LibraryRepository libraryRepository) {
+    public LibraryController(LibraryRepository libraryRepository, UserRepository userRepository) {
         this.libraryRepository = libraryRepository;
+        this.userRepository = userRepository;
     }
 
     @GetMapping("/libraries")
@@ -34,16 +34,10 @@ public class LibraryController {
     }
 
     @GetMapping("/myLibrary/{id}")
-    Library getMyLibrary(@PathVariable Long id) {
+    ResponseEntity<?> getMyLibrary(@PathVariable Long id) {
         Optional<User> user = userRepository.findById(id);
-        List<Library> libraries = libraryRepository.findAll();
-        for(Library library : libraries) {
-            if(library.getOwner().equals(user)) {
-                return library;
-            }
-        }
-
-        return null;
+        return user.map(response -> ResponseEntity.ok().body(response.getLibrary()))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @GetMapping("/library/{id}")
