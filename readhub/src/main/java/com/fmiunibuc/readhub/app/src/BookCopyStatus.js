@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 
-class BookCopyEdit extends Component {
+class BookCopyStatus extends Component {
 
     emptyItem = {
         name: ''
@@ -50,16 +50,16 @@ class BookCopyEdit extends Component {
 
     render() {
         const {item} = this.state;
-        const title = <h2>{item.id ? 'Update pages' : 'Add Book Copy'}</h2>;
+        const title = <h2>{item.id ? 'Change status' : 'Add Book Copy'}</h2>;
 
         return <div>
             <Container>
                 {title}
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
-                        <Label for="pagesRead">How many pages have you read?</Label>
-                        <Input type="text" name="pagesRead" id="pagesRead" value={item.pagesRead}
-                               onChange={this.handleChange} autoComplete="pages"/>
+                        <Label for="status">Status</Label>
+                        <Input type="text" name="status" id="status" value={item.status}
+                               onChange={this.handleChange} autoComplete="status"/>
                     </FormGroup>
 
                     <FormGroup>
@@ -72,6 +72,4 @@ class BookCopyEdit extends Component {
     }
 }
 
-export default withRouter(BookCopyEdit);
-
-// TODO: add fields for adding/editing
+export default withRouter(BookCopyStatus);
