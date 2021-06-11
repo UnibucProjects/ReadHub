@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -31,6 +32,12 @@ public class Shelf {
     @ManyToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JsonIgnoreProperties("shelfList")
     private Library library;
+
+    public Shelf(@NonNull String name, Library library) {
+        this.name = name;
+        this.books = new HashSet<>();
+        this.library = library;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -4,16 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @NoArgsConstructor
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
@@ -32,6 +29,18 @@ public class Library {
     private User owner;
     @OneToMany(mappedBy = "library", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private Set<Shelf> shelfList;
+
+    public Library(@NonNull String name) {
+        this.name = name;
+        Shelf toRead = new Shelf("To Read", this),
+                reading = new Shelf("Reading", this),
+                read = new Shelf("Read", this);
+        List<Shelf> shelves = new ArrayList<>();
+        shelves.add(toRead);
+        shelves.add(reading);
+        shelves.add(read);
+        this.shelfList = new HashSet<>(shelves);
+    }
 
     @Override
     public boolean equals(Object o) {

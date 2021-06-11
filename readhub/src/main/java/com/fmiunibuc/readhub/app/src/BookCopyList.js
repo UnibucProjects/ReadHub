@@ -46,7 +46,7 @@ class BookCopyList extends Component {
       const author = `${'Author name' || ''}`;
       return (
         <tr key={bookCopy.id}>
-          <td style={{ whiteSpace: 'nowrap' }}>{bookName}</td>
+          <td style={{ whiteSpace: 'nowrap' }}><Link to={`/myBookCopy/${bookCopy.id}`}>{bookName}</Link></td>
           <td>{bookCopy.author}</td>
           <td>{shelfName}</td>
           <td>{bookCopy.status}</td>

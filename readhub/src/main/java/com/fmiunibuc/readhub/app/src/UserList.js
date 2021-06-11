@@ -56,9 +56,6 @@ class UserList extends Component {
     return (
       <div>
         <Container fluid>
-          <div className="float-right">
-            <Button color="success" tag={Link} to="/users/new">Add User</Button>
-          </div>
           <h3>My Users</h3>
           <Table className="mt-5">
             <thead>

@@ -6,13 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -28,7 +27,15 @@ public class UserController {
 
     @GetMapping("/users")
     Collection<User> users(){
-        return userRepository.findAll();
+        List<User> users = userRepository.findAll();
+        List<User> usersWithoutAdmin = new ArrayList<>();
+        for(User user: users) {
+            if(!user.getUsername().equals("admin")) {
+                usersWithoutAdmin.add(user);
+            }
+        }
+
+        return usersWithoutAdmin;
     }
 
     @GetMapping("/user/{id}")
@@ -36,14 +43,6 @@ public class UserController {
         Optional<User> user = userRepository.findById(id);
         return user.map(response -> ResponseEntity.ok().body(response))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
-
-    @PostMapping("/user")
-    ResponseEntity<User> createUser(@Valid @RequestBody User user) throws URISyntaxException {
-        log.info("Request to create user: {}", user);
-        User result = userRepository.save(user);
-        return ResponseEntity.created(new URI("/api/user/" + result.getId()))
-                .body(result);
     }
 
     @PutMapping("/user/{id}")

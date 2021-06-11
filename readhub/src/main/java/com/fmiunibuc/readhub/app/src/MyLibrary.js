@@ -8,20 +8,18 @@ import AuthService from './services/auth.service';
 class MyLibrary extends Component {
   constructor(props) {
     super(props);
-    this.state = { library: null, isLoading: true, currentUser: null };
+    this.state = { library: null, isLoading: true };
   }
 
   async componentDidMount() {
-    const user = AuthService.getCurrentUser();
-    console.log(user);
     this.setState({ isLoading: true });
-    await fetch(`/api/library/${this.props.match.params.id}`)
+    await fetch(`/api/myLibrary/${this.props.match.params.id}`)
       .then((response) => response.json())
-      .then((data) => this.setState({ library: data, isLoading: false, currentUser: user }));
+      .then((data) => this.setState({ library: data, isLoading: false }));
   }
 
   render() {
-    const { library, isLoading, user } = this.state;
+    const { library, isLoading } = this.state;
 
     if (isLoading) {
       return <p>Loading...</p>;
