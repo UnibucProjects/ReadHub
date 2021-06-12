@@ -36,7 +36,7 @@ public class LibraryController {
     @GetMapping("/myLibrary/{id}")
     ResponseEntity<?> getMyLibrary(@PathVariable Long id) {
         Optional<User> user = userRepository.findById(id);
-        return user.map(response -> ResponseEntity.ok().body(response.getLibrary()))
+        return user.map(response -> ResponseEntity.ok().body(response.getLibrary().getShelfList()))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 

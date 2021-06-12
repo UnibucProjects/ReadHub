@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
+import AuthService from "./services/auth.service";
 
 
 class ShelfEdit extends Component {
@@ -37,8 +38,8 @@ class ShelfEdit extends Component {
     async handleSubmit(event) {
         event.preventDefault();
         const {item} = this.state;
-
-        await fetch('/api/shelf' + (item.id ? '/' + item.id : ''), {
+        const user = AuthService.getCurrentUser();
+        await fetch('/api/shelf/' + user.id, {
             method: (item.id) ? 'PUT' : 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -46,13 +47,22 @@ class ShelfEdit extends Component {
             },
             body: JSON.stringify(item),
         });
-        this.props.history.push('/shelves');
+        // await fetch('/api/shelf' + (item.id ? '/' + item.id : ''), {
+        //     method: (item.id) ? 'PUT' : 'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(item),
+        // });
+        this.props.history.push('/myLibrary/' + user.id);
     }
 
     render() {
         const {item} = this.state;
         const title = <h2>{item.id ? 'Edit Shelf' : 'Add Shelf'}</h2>;
-
+        const user = AuthService.getCurrentUser();
+        console.log(user);
         return <div>
             <Container>
                 {title}
@@ -62,10 +72,12 @@ class ShelfEdit extends Component {
                         <Input type="text" name="name" id="name" value={item.name || ''}
                                onChange={this.handleChange} autoComplete="name"/>
                     </FormGroup>
-
+                    <FormGroup>
+                        <Input type="hidden" name="id" id="id" value={user.id} />
+                    </FormGroup>
                     <FormGroup>
                         <Button color="primary" type="submit">Save</Button>{' '}
-                        <Button color="secondary" tag={Link} to="/shelves">Cancel</Button>
+                        <Button color="secondary" tag={Link} to={"/myLibrary/" + user.id}>Cancel</Button>
                     </FormGroup>
                 </Form>
             </Container>

@@ -63,7 +63,7 @@ class BookList extends Component {
           <div className="float-right">
             <Button color="success" tag={Link} to="/books/new">Add Book</Button>
           </div>
-          <h3>My shelves</h3>
+          <h3>Books</h3>
           <Table className="mt-4">
             <thead>
               <tr>

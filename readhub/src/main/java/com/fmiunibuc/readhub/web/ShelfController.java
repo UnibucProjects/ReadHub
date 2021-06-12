@@ -5,6 +5,7 @@ import com.fmiunibuc.readhub.model.Library;
 import com.fmiunibuc.readhub.model.Shelf;
 import com.fmiunibuc.readhub.model.User;
 import com.fmiunibuc.readhub.model.repositories.BookCopyRepository;
+import com.fmiunibuc.readhub.model.repositories.LibraryRepository;
 import com.fmiunibuc.readhub.model.repositories.ShelfRepository;
 import com.fmiunibuc.readhub.model.repositories.UserRepository;
 import org.slf4j.Logger;
@@ -29,9 +30,13 @@ public class ShelfController {
     private ShelfRepository shelfRepository;
     private BookCopyRepository bookCopyRepository;
     private UserRepository userRepository;
+    private LibraryRepository libraryRepository;
 
-    public ShelfController(ShelfRepository shelfRepository) {
+    public ShelfController(ShelfRepository shelfRepository, BookCopyRepository bookCopyRepository, UserRepository userRepository, LibraryRepository libraryRepository) {
         this.shelfRepository = shelfRepository;
+        this.bookCopyRepository = bookCopyRepository;
+        this.userRepository = userRepository;
+        this.libraryRepository = libraryRepository;
     }
 
     @GetMapping("/shelves")
@@ -78,9 +83,15 @@ public class ShelfController {
         return new ResponseEntity(headers, HttpStatus.FOUND);
     }
 
-    @PostMapping("/shelf")
-    ResponseEntity<Shelf> createShelf(@Valid @RequestBody Shelf shelf) throws URISyntaxException {
+    @PostMapping("/shelf/{id}")
+    ResponseEntity<Shelf> createShelf(@Valid @RequestBody Shelf shelf, @PathVariable Long id) throws URISyntaxException {
         log.info("Request to create shelf: {}", shelf);
+        Optional<Library> library = libraryRepository.findById(id);
+        if (library.isPresent())
+        {
+            shelf.setLibrary(library.get());
+            library.get().getShelfList().add(shelf);
+        }
         Shelf result = shelfRepository.save(shelf);
         return ResponseEntity.created(new URI("/api/shelf/" + result.getId()))
                 .body(result);

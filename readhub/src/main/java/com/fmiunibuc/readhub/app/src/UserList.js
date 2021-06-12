@@ -56,7 +56,7 @@ class UserList extends Component {
     return (
       <div>
         <Container fluid>
-          <h3>My Users</h3>
+          <h3>Users</h3>
           <Table className="mt-5">
             <thead>
               <tr>

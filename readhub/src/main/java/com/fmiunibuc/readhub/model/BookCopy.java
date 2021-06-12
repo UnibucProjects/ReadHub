@@ -22,10 +22,10 @@ public class BookCopy {
     private String status;
     private Long pagesRead;
     private Integer rating;
-    @ManyToOne(cascade= CascadeType.PERSIST,  fetch = FetchType.LAZY)
+    @ManyToOne(cascade= CascadeType.ALL,  fetch = FetchType.EAGER)
     @JsonIgnoreProperties("copyList")
     private Book bookType;
-    @ManyToOne(cascade=CascadeType.PERSIST,  fetch = FetchType.LAZY)
+    @ManyToOne(cascade=CascadeType.ALL,  fetch = FetchType.EAGER)
     @JsonIgnoreProperties("books")
     private Shelf shelf;
 }

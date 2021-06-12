@@ -29,7 +29,7 @@ public class Shelf {
     @OneToMany(mappedBy = "shelf", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnoreProperties("shelf")
     private Set<BookCopy> books;
-    @ManyToOne(cascade=CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnoreProperties("shelfList")
     private Library library;
 

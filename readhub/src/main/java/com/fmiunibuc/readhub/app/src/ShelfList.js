@@ -40,8 +40,8 @@ class ShelfList extends Component {
     }
 
     const shelfList = shelves.map((shelf) => {
-      //const ownerName = `${'Owner name' || ''}`;
-      //const libraryName = `${'Library name' || ''}`;
+      const ownerName = `${'Owner name' || ''}`;
+      const libraryName = `${'Library name' || ''}`;
       return (
         <tr key={shelf.id}>
           <td style={{ whiteSpace: 'nowrap' }}>{shelf.name}</td>
