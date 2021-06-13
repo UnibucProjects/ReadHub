@@ -36,8 +36,6 @@ class MyLibrary extends Component {
     if (isLoading) {
       return <p>Loading...</p>;
     }
-    console.log("Shelves ")
-    console.log(shelves)
     if (shelves === []) {
       return (
           <div>
@@ -64,7 +62,7 @@ class MyLibrary extends Component {
                 <div className="float-right">
                     <Button color="success" tag={Link} to="/shelves/new">Add Shelf</Button>
                 </div>
-                <h2>My shalves</h2>
+                <h2>My shelves</h2>
             </div>
             <Table className="mt-4">
               <thead>

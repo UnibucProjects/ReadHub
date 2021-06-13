@@ -170,6 +170,7 @@ class App extends Component {
               <Route path="/books/:id" component={BookEdit} />
               <Route path="/bookCopies" exact component={BookCopyList} />
               <Route path="/bookCopies/:id" component={BookCopyEdit} />
+              <Route path="/addBookToShelf/:id1/:id2" component={MyBookCopy}/>
               <Route path="/bookCopiesStatus/:id" component={BookCopyStatus} />
               <Route path="/myBookCopy/:id" component={MyBookCopy} />
               <Route path="/users" exact component={UserList} />

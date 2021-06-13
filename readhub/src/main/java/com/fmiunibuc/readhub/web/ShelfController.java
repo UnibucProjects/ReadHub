@@ -1,13 +1,7 @@
 package com.fmiunibuc.readhub.web;
 
-import com.fmiunibuc.readhub.model.BookCopy;
-import com.fmiunibuc.readhub.model.Library;
-import com.fmiunibuc.readhub.model.Shelf;
-import com.fmiunibuc.readhub.model.User;
-import com.fmiunibuc.readhub.model.repositories.BookCopyRepository;
-import com.fmiunibuc.readhub.model.repositories.LibraryRepository;
-import com.fmiunibuc.readhub.model.repositories.ShelfRepository;
-import com.fmiunibuc.readhub.model.repositories.UserRepository;
+import com.fmiunibuc.readhub.model.*;
+import com.fmiunibuc.readhub.model.repositories.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -29,6 +23,7 @@ public class ShelfController {
     private final Logger log = LoggerFactory.getLogger(ShelfController.class);
     private ShelfRepository shelfRepository;
     private BookCopyRepository bookCopyRepository;
+    private BookRepository bookRepository;
     private UserRepository userRepository;
     private LibraryRepository libraryRepository;
 
@@ -64,23 +59,6 @@ public class ShelfController {
         }
 
         return null;
-    }
-
-    @GetMapping("/addBookToShelf/{shelfId}/{bookId}/{userId}")
-    ResponseEntity addBookToShelf(@PathVariable Long shelfId, @PathVariable Long bookId, @PathVariable Long userId) throws URISyntaxException {
-        Optional<Shelf> shelf = shelfRepository.findById(shelfId);
-        Optional<BookCopy> book = bookCopyRepository.findById(bookId);
-
-        if(shelf.isPresent() && book.isPresent()) {
-            Set<BookCopy> books = shelf.get().getBooks();
-            books.add(book.get());
-        }
-
-        Shelf result = shelf.get();
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", "localhost:3000/shelf/" + userId + "/" + shelfId);
-
-        return new ResponseEntity(headers, HttpStatus.FOUND);
     }
 
     @PostMapping("/shelf/{id}")
