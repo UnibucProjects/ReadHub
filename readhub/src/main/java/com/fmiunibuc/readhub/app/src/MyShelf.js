@@ -66,7 +66,7 @@ class MyShelf extends Component {
     );
     const bookListShow = bookList.map((book) => (
         <tr key={book.id}>
-            <td style={{ whiteSpace: 'nowrap' }}><Link to={`/shelf/${book.id}`}>{book.bookType.name}</Link></td>
+            <td style={{ whiteSpace: 'nowrap' }}><Link to={`/myBookCopy/${book.id}`}>{book.bookType.name}</Link></td>
             <td>
                 <ButtonGroup>
                     <Button size="sm" color="primary" tag={Link} to={`/books/${shelf.id}`}>Edit</Button>

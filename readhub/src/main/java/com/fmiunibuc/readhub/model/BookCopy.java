@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Data
 @NoArgsConstructor
@@ -22,10 +23,18 @@ public class BookCopy {
     private String status;
     private Long pagesRead;
     private Integer rating;
-    @ManyToOne(cascade= CascadeType.ALL,  fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnoreProperties("copyList")
     private Book bookType;
-    @ManyToOne(cascade=CascadeType.ALL,  fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnoreProperties("books")
     private Shelf shelf;
+
+    public BookCopy(Book book, Shelf shelf, long pages, int rating, String to_read) {
+        this.bookType = book;
+        this.shelf = shelf;
+        this.pagesRead = pages;
+        this.rating = rating;
+        this.status = to_read;
+    }
 }

@@ -3,13 +3,18 @@ import {
   Button, ButtonGroup, Container, Table,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import AppNavbar from './AppNavbar';
 import AuthService from './services/auth.service';
 
+
+
 class BookList extends Component {
+  emptyItem = {
+    name: ''
+  };
+
   constructor(props) {
     super(props);
-    this.state = { books: [], isLoading: true };
+    this.state = {item: this.emptyItem, books: [], isLoading: true };
     this.remove = this.remove.bind(this);
   }
 
@@ -34,9 +39,21 @@ class BookList extends Component {
     });
   }
 
+  async onClickHandler(bookId){
+    const user = AuthService.getCurrentUser();
+    await fetch(`/api/addBookToShelf/${user.id}/${bookId}`,
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+       .then(r => console.log(r));
+  }
+
   render() {
     const { books, isLoading } = this.state;
-    const user = AuthService.getCurrentUser();
 
     if (isLoading) {
       return <p>Loading...</p>;
@@ -49,7 +66,7 @@ class BookList extends Component {
         <td>{book.pages}</td>
         <td>
           <ButtonGroup>
-            <Button size="sm" color="orange" tag={Link} to={`/myShelves/${user.id}/${book.id}`}>Add to my library</Button>
+            <Button size="sm" color="orange" onClick={() => this.onClickHandler(book.id)}>Add to my library</Button>
             <Button size="sm" color="primary" tag={Link} to={`/books/${book.id}`}>Edit</Button>
             <Button size="sm" color="danger" onClick={() => this.remove(book.id)}>Delete</Button>
           </ButtonGroup>

@@ -60,9 +60,6 @@ class BookCopyList extends Component {
     return (
       <div>
         <Container fluid>
-          <div className="float-right">
-            <Button color="success" tag={Link} to="/bookCopies/new">Add Book Copy</Button>
-          </div>
           <h3>My book copies</h3>
           <Table className="mt-4">
             <thead>
