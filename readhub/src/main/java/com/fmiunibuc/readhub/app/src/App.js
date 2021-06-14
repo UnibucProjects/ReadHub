@@ -25,6 +25,7 @@ import BoardUser from './components/board-user.component';
 import BoardModerator from './components/board-moderator.component';
 import BoardAdmin from './components/board-admin.component';
 import BookCopyStatus from "./BookCopyStatus";
+import MyStats from "./MyStats"
 
 const TITLE = 'ReadHub';
 
@@ -102,6 +103,13 @@ class App extends Component {
                 </Link>
               </li>
               )}
+              {isAuthenticated && (
+                  <li className="nav-item">
+                    <Link to={`/myStats/${id}`} className="nav-link">
+                      My stats
+                    </Link>
+                  </li>
+              )}
               <li className="nav-item">
                 <Link to="/books" className="nav-link">
                   Manage books
@@ -157,6 +165,7 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/profile" component={Profile} />
+              <Route path="/myStats/:id" component={MyStats} />
               <Route path="/user" component={BoardUser} />
               <Route path="/mod" component={BoardModerator} />
               <Route path="/admin" component={BoardAdmin} />
