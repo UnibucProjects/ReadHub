@@ -39,7 +39,7 @@ class ShelfEdit extends Component {
         event.preventDefault();
         const {item} = this.state;
         const user = AuthService.getCurrentUser();
-        await fetch('/api/shelf/' + user.id, {
+        await fetch('/api/shelf/' + user.library_id, {
             method: (item.id) ? 'PUT' : 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -55,7 +55,7 @@ class ShelfEdit extends Component {
         //     },
         //     body: JSON.stringify(item),
         // });
-        this.props.history.push('/myLibrary/' + user.id);
+        this.props.history.push('/myLibrary/' + user.library_id);
     }
 
     render() {
@@ -77,7 +77,7 @@ class ShelfEdit extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Button color="primary" type="submit">Save</Button>{' '}
-                        <Button color="secondary" tag={Link} to={"/myLibrary/" + user.id}>Cancel</Button>
+                        <Button color="secondary" tag={Link} to={"/myLibrary/" + user.library}>Cancel</Button>
                     </FormGroup>
                 </Form>
             </Container>

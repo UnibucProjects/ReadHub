@@ -26,7 +26,7 @@ public class Library {
     @OneToOne(mappedBy = "library", fetch = FetchType.LAZY)
     @JsonIgnoreProperties("library")
     private User owner;
-    @OneToMany(mappedBy = "library", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @OneToMany(mappedBy = "library", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     private Set<Shelf> shelfList;
 
     public Library(@NonNull String name) {
@@ -53,5 +53,17 @@ public class Library {
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
+    }
+
+    public void setShelfList(Set<Shelf> shelfList) {
+        this.shelfList = shelfList;
+        for(Shelf child: this.shelfList) {
+            child.setLibrary(this);
+        }
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+        owner.setLibrary(this);
     }
 }
