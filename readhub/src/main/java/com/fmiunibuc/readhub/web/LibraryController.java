@@ -1,6 +1,8 @@
 package com.fmiunibuc.readhub.web;
 
+import com.fmiunibuc.readhub.model.BookCopy;
 import com.fmiunibuc.readhub.model.Library;
+import com.fmiunibuc.readhub.model.Shelf;
 import com.fmiunibuc.readhub.model.User;
 import com.fmiunibuc.readhub.model.repositories.LibraryRepository;
 import com.fmiunibuc.readhub.model.repositories.UserRepository;
@@ -13,8 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Collection;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api")
@@ -31,6 +32,48 @@ public class LibraryController {
     @GetMapping("/libraries")
     Collection<Library> libraries(){
         return libraryRepository.findAll();
+    }
+
+    @GetMapping("/myStats/{id}")
+    Collection<BookCopy> getStats(@PathVariable Long id){
+        Optional<User> user = userRepository.findById(id);
+        Set<Shelf> shelves = user.get().getLibrary().getShelfList();
+        List<BookCopy> books = new ArrayList<>();
+        for (Shelf shelf : shelves){
+            books.addAll(shelf.getBooks());
+        }
+        int mostPages = 0, leastPages = 100000, maxRate = -1, minRate = 11;
+        BookCopy longestBook = null;
+        BookCopy shortestBook = null;
+        BookCopy bestBook = null;
+        BookCopy worstBook = null;
+        for (BookCopy bookCopy : books){
+            if (bookCopy.getBookType().getPages() > mostPages){
+                mostPages = bookCopy.getBookType().getPages();
+                longestBook = bookCopy;
+            }
+            if (bookCopy.getBookType().getPages() < leastPages){
+                leastPages = bookCopy.getBookType().getPages();
+                shortestBook = bookCopy;
+            }
+            if (bookCopy.getRating() > maxRate){
+                maxRate = bookCopy.getRating();
+                bestBook = bookCopy;
+            }
+            if (bookCopy.getRating() < minRate){
+                minRate = bookCopy.getRating();
+                worstBook = bookCopy;
+            }
+        }
+        List<BookCopy> stats = new ArrayList<>();
+        if (longestBook != null){
+            stats.add(longestBook);
+            stats.add(shortestBook);
+            stats.add(bestBook);
+            stats.add(worstBook);
+        }
+        return stats;
+
     }
 
     @GetMapping("/myLibrary/{id}")

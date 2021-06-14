@@ -69,8 +69,7 @@ class MyShelf extends Component {
             <td style={{ whiteSpace: 'nowrap' }}><Link to={`/myBookCopy/${book.id}`}>{book.bookType.name}</Link></td>
             <td>
                 <ButtonGroup>
-                    <Button size="sm" color="primary" tag={Link} to={`/books/${shelf.id}`}>Edit</Button>
-                    <Button size="sm" color="danger" onClick={() => this.removeBook(shelf.id)}>Delete</Button>
+                    <Button size="sm" color="danger" onClick={() => this.removeBook(book.id)}>Delete</Button>
                 </ButtonGroup>
             </td>
         </tr>
