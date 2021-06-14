@@ -26,4 +26,11 @@ public class Book {
     @OneToMany(mappedBy = "bookType", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JsonIgnoreProperties("bookType")
     private List<BookCopy> copyList;
+
+    public void setCopyList(List<BookCopy> copyList) {
+        this.copyList = copyList;
+        for(BookCopy child: this.copyList) {
+            child.setBookType(this);
+        }
+    }
 }

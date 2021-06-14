@@ -7,6 +7,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -50,5 +51,12 @@ public class Shelf {
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
+    }
+
+    public void setBooks(Set<BookCopy> copyList) {
+        this.books = copyList;
+        for(BookCopy child: this.books) {
+            child.setShelf(this);
+        }
     }
 }

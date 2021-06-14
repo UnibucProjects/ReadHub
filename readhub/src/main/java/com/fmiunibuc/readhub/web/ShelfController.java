@@ -63,8 +63,8 @@ public class ShelfController {
 
     @PostMapping("/shelf/{id}")
     ResponseEntity<Shelf> createShelf(@Valid @RequestBody Shelf shelf, @PathVariable Long id) throws URISyntaxException {
-        log.info("Request to create shelf: {}", shelf);
         Optional<Library> library = libraryRepository.findById(id);
+        System.out.println(id);
         if (library.isPresent())
         {
             shelf.setLibrary(library.get());

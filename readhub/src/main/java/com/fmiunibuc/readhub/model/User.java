@@ -108,5 +108,6 @@ public class User {
 
     public void setLibrary(Library library) {
         this.library = library;
+        library.setOwner(this);
     }
 }
