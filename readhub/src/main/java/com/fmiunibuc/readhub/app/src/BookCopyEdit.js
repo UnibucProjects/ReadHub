@@ -73,5 +73,3 @@ class BookCopyEdit extends Component {
 }
 
 export default withRouter(BookCopyEdit);
-
-// TODO: add fields for adding/editing

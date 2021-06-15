@@ -27,12 +27,12 @@ body::after {
 }
 
 #login_div {
-    background-color: #ffffcc;
+    background-color: #c4e3ed;
     border-radius: 20px;
 }
 
 #signup_div {
-    background-color: #ffffcc;
+    background-color: #c4e3ed;
     border-radius: 20px;
 }
 
@@ -49,4 +49,18 @@ body::after {
 
 #library_buttons {
     float: right;
+}
+
+#hint {
+    display: flex;
+}
+
+#progress {
+    background-color: #fff766;
+}
+
+#btn {
+    color: black;
+    background-color: #00e673;
+    border-color: #00e673;
 }

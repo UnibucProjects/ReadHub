@@ -3,6 +3,7 @@ import {
   Button, ButtonGroup, Container, Table,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import "./App.css";
 
 class UserList extends Component {
   constructor(props) {
@@ -46,8 +47,8 @@ class UserList extends Component {
         <td>{user.email}</td>
         <td>
           <ButtonGroup>
-            <Button size="sm" color="primary" tag={Link} to={`/users/${user.id}`}>Edit</Button>
-            <Button size="sm" color="danger" onClick={() => this.remove(user.id)}>Delete</Button>
+            <Button size="sm" className={"action_button"} color="primary" tag={Link} to={`/users/${user.id}`}>Edit</Button>
+            <Button size="sm" className={"action_button"} color="danger" onClick={() => this.remove(user.id)}>Delete</Button>
           </ButtonGroup>
         </td>
       </tr>
@@ -60,8 +61,9 @@ class UserList extends Component {
           <Table className="mt-5">
             <thead>
               <tr>
-                <th width="20%">Name</th>
-                <th width="20%">Email</th>
+                <th width="40%">Name</th>
+                <th width="30%">Email</th>
+                <th width="30%">Actions</th>
               </tr>
             </thead>
             <tbody>

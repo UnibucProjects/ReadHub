@@ -3,6 +3,7 @@ import {
   Button, ButtonGroup, Container, Table,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import "./App.css";
 
 class ShelfList extends Component {
   constructor(props) {
@@ -40,19 +41,17 @@ class ShelfList extends Component {
     }
 
     const shelfList = shelves.map((shelf) => {
-      const ownerName = `${'Owner name' || ''}`;
-      const libraryName = `${'Library name' || ''}`;
       return (
         <tr key={shelf.id}>
           <td style={{ whiteSpace: 'nowrap' }}>{shelf.name}</td>
 
           <td>
-
+            {shelf.library.name}
           </td>
           <td>
             <ButtonGroup>
-              <Button size="sm" color="primary" tag={Link} to={`/shelves/${shelf.id}`}>Edit</Button>
-              <Button size="sm" color="danger" onClick={() => this.remove(shelf.id)}>Delete</Button>
+              <Button size="sm" className={"action_button"} color="primary" tag={Link} to={`/shelves/${shelf.id}`}>Edit</Button>
+              <Button size="sm" className={"action_button"} color="danger" onClick={() => this.remove(shelf.id)}>Delete</Button>
             </ButtonGroup>
           </td>
         </tr>
@@ -70,10 +69,8 @@ class ShelfList extends Component {
             <thead>
               <tr>
                 <th width="20%">Name</th>
-                <th width="20%">Library</th>
-                <th width="20%">Owner</th>
-                <th>Books</th>
-                <th width="10%">Actions</th>
+                <th width="50%">Library</th>
+                <th width="30%">Actions</th>
               </tr>
             </thead>
             <tbody>

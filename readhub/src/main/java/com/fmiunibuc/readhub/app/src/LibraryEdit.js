@@ -58,7 +58,8 @@ class LibraryEdit extends Component {
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
                         <Label for="name">Name</Label>
-                        <Input type="text" name="name" id="name" value={item.name || ''}
+                        <Input type="text" name="name" id={"name"} value={item.name || ''}
+                               className={"name"}
                                onChange={this.handleChange} autoComplete="name"/>
                     </FormGroup>
 

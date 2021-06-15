@@ -34,3 +34,4 @@ public class Book {
         }
     }
 }
+// TODO: 15.06.2021 cate pagini am citit(din reading)/total pag din toata libraria
