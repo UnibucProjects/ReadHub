@@ -68,7 +68,6 @@ public class ShelfController {
         loggerService.info("Request to create shelf");
         Optional<User> user = userRepository.findById(id);
         Library library = null;
-        Shelf result = shelfRepository.save(shelf);
         if(user.isPresent()) {
             library = user.get().getLibrary();
         }
@@ -77,6 +76,7 @@ public class ShelfController {
             shelf.setLibrary(library);
             library.getShelfList().add(shelf);
         }
+        Shelf result = shelfRepository.save(shelf);
         return ResponseEntity.created(new URI("/api/shelf/" + result.getId()))
                 .body(result);
     }

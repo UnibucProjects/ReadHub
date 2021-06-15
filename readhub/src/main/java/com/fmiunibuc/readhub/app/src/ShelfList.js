@@ -40,6 +40,10 @@ class ShelfList extends Component {
       return <p>Loading...</p>;
     }
 
+    for(let i = 0; i < shelves.length; i++) {
+      console.log(shelves[i].library.name);
+    }
+
     const shelfList = shelves.map((shelf) => {
       return (
         <tr key={shelf.id}>
@@ -64,7 +68,7 @@ class ShelfList extends Component {
           <div className="float-right">
             <Button color="success" tag={Link} to="/shelves/new">Add Shelf</Button>
           </div>
-          <h3>My shelves</h3>
+          <h3>Shelves</h3>
           <Table className="mt-5">
             <thead>
               <tr>

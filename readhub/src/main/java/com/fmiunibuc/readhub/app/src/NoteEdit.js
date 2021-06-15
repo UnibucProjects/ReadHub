@@ -35,7 +35,7 @@ class NoteEdit extends Component {
         event.preventDefault();
         const {item} = this.state;
         console.log(item);
-        await fetch(`/api/note/${item.id}/${this.props.match.params.id}`,{
+        await fetch(`/api/note/${this.props.match.params.id}`,{
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

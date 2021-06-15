@@ -86,8 +86,8 @@ class BookList extends Component {
         <td>
           <ButtonGroup>
             <Button size="sm" color={"success"} onClick={() => this.onClickHandler(book.id)}>Add to my library</Button>
-            {user.roles.includes('ROLE_ADMIN') && (<Button size="sm" color="primary" tag={Link} to={`/books/${book.id}`}>Edit</Button>)}
-            {user.roles.includes('ROLE_ADMIN') && (<Button size="sm" color="danger" onClick={() => this.remove(book.id)}>Delete</Button>)}
+            {user.roles.includes('ROLE_MODERATOR') && (<Button size="sm" color="primary" tag={Link} to={`/books/${book.id}`}>Edit</Button>)}
+            {user.roles.includes('ROLE_MODERATOR') && (<Button size="sm" color="danger" onClick={() => this.remove(book.id)}>Delete</Button>)}
           </ButtonGroup>
         </td>
       </tr>
@@ -97,7 +97,7 @@ class BookList extends Component {
       <div>
         <Container fluid>
           <div className="float-right">
-            {user.roles.includes('ROLE_ADMIN') && (
+            {user.roles.includes('ROLE_MODERATOR') && (
             <Button color="success" tag={Link} to="/books/new">Add Book</Button>)}
           </div>
           <h3>Books</h3>
