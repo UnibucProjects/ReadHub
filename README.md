@@ -28,6 +28,9 @@ Design, UML, architecture
 ## Sequence Diagram
 <img src = "images/SequenceDiagram.jpeg" width = 1000>
 
+## Class Diagram
+<img src = "images/ClassDiagram.jpeg" width = 1000>
+
 # Source control
 We used git as a source control system. We each have our branches: alex, delia, diana, ioana and stefan. 
 
