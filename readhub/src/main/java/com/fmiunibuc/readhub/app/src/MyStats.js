@@ -32,6 +32,11 @@ class MyStats extends Component{
 
             return (
                 <div class="container">
+                    <h1>
+                        My stats
+                    </h1>
+                    <br/>
+                    <br/>
                     <h4>
                         <strong>Longest book in my library:</strong>
                         {' '}

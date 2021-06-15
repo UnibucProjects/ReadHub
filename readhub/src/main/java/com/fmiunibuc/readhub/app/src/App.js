@@ -115,9 +115,9 @@ class App extends Component {
                     </Link>
                   </li>
               )}
-              {showAdminBoard && (<li className="nav-item">
+              {isAuthenticated && (<li className="nav-item">
                 <Link to="/books" className="nav-link">
-                  Manage books
+                  Books
                 </Link>
               </li>)}
               {showAdminBoard && (<li className="nav-item">

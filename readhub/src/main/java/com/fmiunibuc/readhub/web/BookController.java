@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.Set;
@@ -37,6 +38,32 @@ public class BookController {
     Collection<Book> books(){
         loggerService.info("Request to get all books");
         return bookRepository.findAll();
+    }
+
+    @GetMapping("/books/ratings")
+    Collection<Double> ratings() {
+        Collection<Book> books = bookRepository.findAll();
+        Collection<Double> ratings = new ArrayList<>();
+
+        for(Book book: books) {
+            double rating = 0.0;
+            int rates = 0;
+
+            for(BookCopy bookCopy : book.getCopyList()) {
+                if(bookCopy.getRating() != 0) {
+                    rating += bookCopy.getRating();
+                    rates++;
+                }
+            }
+
+            if(rates > 0) {
+                ratings.add(rating / rates);
+            } else {
+                ratings.add(null);
+            }
+        }
+
+        return ratings;
     }
 
     @GetMapping("/book/{id}")

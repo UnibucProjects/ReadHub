@@ -63,6 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/myStats/**").permitAll()
                 .antMatchers("/api/addBookToShelf/**").permitAll()
                 .antMatchers("/api/myBookCopy/**").permitAll()
+                .antMatchers("/api/librariesOwners").permitAll()
                 .antMatchers("/api/test/**").permitAll()
                 .antMatchers("/api/bookCopiesStatus/**").permitAll()
                 .antMatchers("/api/bookCopiesRating/**").permitAll()

@@ -3,11 +3,12 @@ import {
   Button, ButtonGroup, Container, Table,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import "./App.css";
 
 class LibraryList extends Component {
   constructor(props) {
     super(props);
-    this.state = { libraries: [], isLoading: true };
+    this.state = { libraries: [], librariesOwners: [], isLoading: true };
     this.remove = this.remove.bind(this);
   }
 
@@ -17,6 +18,10 @@ class LibraryList extends Component {
     fetch('api/libraries')
       .then((response) => response.json())
       .then((data) => this.setState({ libraries: data, isLoading: false }));
+
+    fetch('api/librariesOwners')
+        .then((response) => response.json())
+        .then((data) => this.setState({ librariesOwners: data }));
   }
 
   async remove(id) {
@@ -34,23 +39,31 @@ class LibraryList extends Component {
   }
 
   render() {
-    const { libraries, isLoading } = this.state;
+    const { libraries, librariesOwners, isLoading } = this.state;
 
     if (isLoading) {
       // eslint-disable-next-line react/jsx-filename-extension
       return <p>Loading...</p>;
     }
 
-    const libraryList = libraries.map((library) => {
-      const ownerName = `${'Owner name' || ''}`;
+    const newLibraries = [];
+    for(let i = 0; i < libraries.length; i++) {
+      newLibraries[i] = {};
+      newLibraries[i].id = libraries[i].id;
+      newLibraries[i].name = libraries[i].name;
+      newLibraries[i].owner = librariesOwners[i];
+    }
+    console.log(librariesOwners);
+
+    const libraryList = newLibraries.map((library) => {
       return (
         <tr key={library.id}>
           <td style={{ whiteSpace: 'nowrap' }}>{library.name}</td>
-          <td>{ownerName}</td>
+          <td>{library.owner}</td>
           <td>
             <ButtonGroup>
-              <Button size="sm" color="primary" tag={Link} to={`/libraries/${library.id}`}>Edit</Button>
-              <Button size="sm" color="danger" onClick={() => this.remove(library.id)}>Delete</Button>
+              <Button className={"action_button"} size="sm" color="primary" tag={Link} to={`/libraries/${library.id}`}>Edit</Button>
+              <Button className={"action_button"} size="sm" color="danger" onClick={() => this.remove(library.id)}>Delete</Button>
             </ButtonGroup>
           </td>
         </tr>
@@ -67,9 +80,9 @@ class LibraryList extends Component {
           <Table className="mt-4">
             <thead>
               <tr>
-                <th width="20%">Name</th>
-                <th width="20%">Owner</th>
-                <th width="10%">Actions</th>
+                <th width="40%">Name</th>
+                <th width="30%">Owner</th>
+                <th width="30%">Actions</th>
               </tr>
             </thead>
             <tbody>

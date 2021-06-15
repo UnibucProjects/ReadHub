@@ -66,4 +66,8 @@ public class Library {
         this.owner = owner;
         owner.setLibrary(this);
     }
+
+    public User getOwner() {
+        return this.owner;
+    }
 }

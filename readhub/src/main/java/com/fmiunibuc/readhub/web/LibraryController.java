@@ -34,6 +34,19 @@ public class LibraryController {
         return libraryRepository.findAll();
     }
 
+    @GetMapping("/librariesOwners")
+    Collection<String> librariesOwners() {
+        Collection<Library> libraries = libraryRepository.findAll();
+        Collection<String> owners = new ArrayList<>();
+
+        for(Library library : libraries) {
+            String name = library.getOwner().getUsername();
+            owners.add(name);
+        }
+
+        return owners;
+    }
+
     @GetMapping("/myStats/{id}")
     Collection<BookCopy> getStats(@PathVariable Long id){
         loggerService.info("Request to get stats of user " + id);

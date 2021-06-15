@@ -12,6 +12,8 @@ export default class Profile extends Component {
       redirect: null,
       userReady: false,
       currentUser: { username: '' },
+      pagesRead: 0,
+      totalPages: 0
     };
   }
 
@@ -20,6 +22,14 @@ export default class Profile extends Component {
 
     if (!currentUser) this.setState({ redirect: '/home' });
     this.setState({ currentUser, userReady: true });
+
+    fetch(`/api/users/pagesRead/${currentUser.id}`)
+        .then((response) => response.json())
+        .then((data) => this.setState({ pagesRead: data }));
+    fetch(`/api/users/totalPages/${currentUser.id}`)
+        .then((response) => response.json())
+        .then((data) => this.setState({ totalPages: data }));
+
   }
 
   render() {
@@ -27,7 +37,26 @@ export default class Profile extends Component {
       return <Redirect to={this.state.redirect} />;
     }
 
-    const { currentUser } = this.state;
+    const { currentUser, pagesRead, totalPages } = this.state;
+
+    let hint = "";
+    let percent = 0;
+    if(totalPages === 0) {
+      hint = "Let's find a book for you!";
+    } else {
+      percent = pagesRead / totalPages;
+      if(percent === 0) {
+        hint = "Ooops, it seems like you haven't read yet! :)) Let's find a book for you!";
+      } else if(percent <= 0.25) {
+        hint = "Keep reading, you can improve your score!";
+      } else if(percent <= 0.5) {
+        hint = "That's very good!";
+      } else if(percent <= 0.75) {
+        hint = "It seems that you like reading!";
+      } else {
+        hint = "Wow, you are an awesome reader! Let's see if there's a new book available!";
+      }
+    }
 
     return (
       <div className="container">
@@ -47,12 +76,17 @@ export default class Profile extends Component {
                 </div>
               </header>
               <br/>
-              <div>
-                <h3>This is our recommendation!</h3>
-                <p>To be added :))</p>
+              <div className={"jumbotron"} id={"progress"}>
+                <header>
+                  <h2>My progress:</h2>
+                  <br/>
+                  <h4>{pagesRead} pages read from a total of {totalPages}. It means {percent * 100}%.</h4>
+                  <div id={"hint"}>
+                    <h4>{hint}</h4> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <Button id={"btn"} tag={Link} to={"/books"}>Go to book list</Button>
+                  </div>
+                </header>
               </div>
-
-
 
             </div>
           ) : null}
