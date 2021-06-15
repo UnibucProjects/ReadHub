@@ -6,8 +6,7 @@ import com.fmiunibuc.readhub.model.Shelf;
 import com.fmiunibuc.readhub.model.User;
 import com.fmiunibuc.readhub.model.repositories.LibraryRepository;
 import com.fmiunibuc.readhub.model.repositories.UserRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.fmiunibuc.readhub.service.LoggerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +19,7 @@ import java.util.*;
 @RestController
 @RequestMapping("/api")
 public class LibraryController {
-    private final Logger log = LoggerFactory.getLogger(LibraryController.class);
+    private final LoggerService loggerService = new LoggerService();
     private LibraryRepository libraryRepository;
     private UserRepository userRepository;
 
@@ -31,11 +30,13 @@ public class LibraryController {
 
     @GetMapping("/libraries")
     Collection<Library> libraries(){
+        loggerService.info("Request to get all libraries");
         return libraryRepository.findAll();
     }
 
     @GetMapping("/myStats/{id}")
     Collection<BookCopy> getStats(@PathVariable Long id){
+        loggerService.info("Request to get stats of user " + id);
         Optional<User> user = userRepository.findById(id);
         Set<Shelf> shelves = user.get().getLibrary().getShelfList();
         List<BookCopy> books = new ArrayList<>();
@@ -78,12 +79,14 @@ public class LibraryController {
 
     @GetMapping("/myLibrary/{id}")
     ResponseEntity<?> getMyLibrary(@PathVariable Long id) {
+        loggerService.info("Request to get library of current user");
         Optional<User> user = userRepository.findById(id);
         return user.map(response -> ResponseEntity.ok().body(response.getLibrary().getShelfList()))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
     @GetMapping("/library/{id}")
     ResponseEntity<?> getLibrary(@PathVariable Long id) {
+        loggerService.info("Request to get library " + id);
         Optional<Library> library = libraryRepository.findById(id);
         return library.map(response -> ResponseEntity.ok().body(response))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -91,7 +94,7 @@ public class LibraryController {
 
     @PostMapping("/library")
     ResponseEntity<Library> createLibrary(@Valid @RequestBody Library library) throws URISyntaxException {
-        log.info("Request to create library: {}", library);
+        loggerService.info("Request to create library");
         Library result = libraryRepository.save(library);
         return ResponseEntity.created(new URI("/api/library/" + result.getId()))
                 .body(result);
@@ -99,14 +102,14 @@ public class LibraryController {
 
     @PutMapping("/library/{id}")
     ResponseEntity<Library> updateLibrary(@Valid @RequestBody Library library) {
-        log.info("Request to update library: {}", library);
+        loggerService.info("Request to update library " + library.getId());
         Library result = libraryRepository.save(library);
         return ResponseEntity.ok().body(result);
     }
 
     @DeleteMapping("/library/{id}")
     public ResponseEntity<?> deleteLibrary(@PathVariable Long id) {
-        log.info("Request to delete library: {}", id);
+        loggerService.info("Request to delete library " + id);
         libraryRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }

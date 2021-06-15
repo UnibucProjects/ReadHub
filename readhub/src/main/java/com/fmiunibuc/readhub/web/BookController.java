@@ -7,8 +7,7 @@ import com.fmiunibuc.readhub.model.User;
 import com.fmiunibuc.readhub.model.repositories.BookCopyRepository;
 import com.fmiunibuc.readhub.model.repositories.BookRepository;
 import com.fmiunibuc.readhub.model.repositories.UserRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.fmiunibuc.readhub.service.LoggerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +22,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/api")
 public class BookController {
-    private final Logger log = LoggerFactory.getLogger(BookController.class);
+    private final LoggerService loggerService = new LoggerService();
     private BookRepository bookRepository;
     private UserRepository userRepository;
     private BookCopyRepository bookCopyRepository;
@@ -36,11 +35,13 @@ public class BookController {
 
     @GetMapping("/books")
     Collection<Book> books(){
+        loggerService.info("Request to get all books");
         return bookRepository.findAll();
     }
 
     @GetMapping("/book/{id}")
     ResponseEntity<?> getBook(@PathVariable Long id) {
+        loggerService.info("Request to get book " + id);
         Optional<Book> book = bookRepository.findById(id);
         return book.map(response -> ResponseEntity.ok().body(response))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -48,7 +49,7 @@ public class BookController {
 
     @PostMapping("/book")
     ResponseEntity<Book> createBook(@Valid @RequestBody Book book) throws URISyntaxException {
-        log.info("Request to create book: {}", book);
+        loggerService.info("Request to create book");
         Book result = bookRepository.save(book);
         return ResponseEntity.created(new URI("/api/book/" + result.getId()))
                 .body(result);
@@ -56,20 +57,21 @@ public class BookController {
 
     @PutMapping("/book/{id}")
     ResponseEntity<Book> updateBook(@Valid @RequestBody Book book) {
-        log.info("Request to update book: {}", book);
+        loggerService.info("Request to update book " + book.getId());
         Book result = bookRepository.save(book);
         return ResponseEntity.ok().body(result);
     }
 
     @DeleteMapping("/book/{id}")
     public ResponseEntity<?> deleteBook(@PathVariable Long id) {
-        log.info("Request to delete book: {}", id);
+        loggerService.info("Request to delete book " + id);
         bookRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping("/addBookToShelf/{userId}/{bookId}")
     ResponseEntity<BookCopy> addBookToShelf(@PathVariable Long userId, @PathVariable Long bookId) throws URISyntaxException {
+        loggerService.info("Request to add book " + bookId + " to library of user " + userId);
         Optional<User> user = userRepository.findById(userId);
         Optional<Book> book = bookRepository.findById(bookId);
         BookCopy bookCopy = null;

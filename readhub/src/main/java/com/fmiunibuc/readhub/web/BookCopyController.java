@@ -5,6 +5,7 @@ import com.fmiunibuc.readhub.model.BookCopy;
 import com.fmiunibuc.readhub.model.Shelf;
 import com.fmiunibuc.readhub.model.User;
 import com.fmiunibuc.readhub.model.repositories.BookCopyRepository;
+import com.fmiunibuc.readhub.service.LoggerService;
 import com.fmiunibuc.readhub.model.repositories.ShelfRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +23,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/api")
 public class BookCopyController {
-    private final Logger log = LoggerFactory.getLogger(BookCopyController.class);
+    private final LoggerService loggerService = new LoggerService();
     private BookCopyRepository bookCopyRepository;
     private ShelfRepository shelfRepository;
 
@@ -33,11 +34,13 @@ public class BookCopyController {
 
     @GetMapping("/bookCopies")
     Collection<BookCopy> bookCopies(){
+        loggerService.info("Request to get all book copies");
         return bookCopyRepository.findAll();
     }
 
     @GetMapping("/myBookCopy/{id}")
     ResponseEntity<?> getBookCopy(@PathVariable Long id) {
+        loggerService.info("Request to get book copy " + id);
         Optional<BookCopy> bookCopy = bookCopyRepository.findById(id);
         return bookCopy.map(response -> ResponseEntity.ok().body(response))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
@@ -45,7 +48,7 @@ public class BookCopyController {
 
     @PostMapping("/bookCopy")
     ResponseEntity<BookCopy> createBookCopy(@Valid @RequestBody BookCopy bookCopy) throws URISyntaxException {
-        log.info("Request to create book copy: {}", bookCopy);
+        loggerService.info("Request to create book copy " + bookCopy.getId());
         BookCopy result = bookCopyRepository.save(bookCopy);
         return ResponseEntity.created(new URI("/api/bookCopy/" + result.getId()))
                 .body(result);
@@ -53,14 +56,14 @@ public class BookCopyController {
 
     @PutMapping("/bookCopy/{id}")
     ResponseEntity<BookCopy> updateBookCopy(@Valid @RequestBody BookCopy bookCopy) {
-        log.info("Request to update book copy: {}", bookCopy);
+        loggerService.info("Request to update book copy " + bookCopy.getId());
         BookCopy result = bookCopyRepository.save(bookCopy);
         return ResponseEntity.ok().body(result);
     }
 
     @DeleteMapping("/bookCopy/{id}")
     public ResponseEntity<?> deleteBookCopy(@PathVariable Long id) {
-        log.info("Request to delete book copy: {}", id);
+        loggerService.info("Request to delete book copy " + id);
         bookCopyRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
