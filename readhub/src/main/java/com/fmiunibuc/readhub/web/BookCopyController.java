@@ -81,6 +81,4 @@ public class BookCopyController {
         }
         return ResponseEntity.ok().body(result);
     }
-
-
 }

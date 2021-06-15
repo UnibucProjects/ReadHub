@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Optional;
 
 @Data
@@ -24,6 +25,9 @@ public class BookCopy {
     private String status;
     private Long pagesRead;
     private Integer rating;
+    @OneToMany(mappedBy = "bookCopyType", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JsonIgnoreProperties("bookCopyType")
+    private List<Note> noteList;
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties("copyList")
     private Book bookType;
@@ -37,5 +41,12 @@ public class BookCopy {
         this.pagesRead = pages;
         this.rating = rating;
         this.status = to_read;
+    }
+
+    public void setNoteList(List<Note> noteList) {
+        this.noteList = noteList;
+        for (Note child : this.noteList) {
+            child.setBookCopyType(this);
+        }
     }
 }
