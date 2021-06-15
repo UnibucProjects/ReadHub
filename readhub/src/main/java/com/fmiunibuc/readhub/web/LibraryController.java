@@ -60,7 +60,7 @@ public class LibraryController {
                 maxRate = bookCopy.getRating();
                 bestBook = bookCopy;
             }
-            if (bookCopy.getRating() < minRate){
+            if (bookCopy.getRating() < minRate && bookCopy.getRating() > 0){
                 minRate = bookCopy.getRating();
                 worstBook = bookCopy;
             }
