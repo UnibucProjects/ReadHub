@@ -58,7 +58,6 @@ class ShelfEdit extends Component {
             },
             body: JSON.stringify(item),
         });
-        alert("The shelf name was edited!");
         this.props.history.push('/myLibrary/' + user.id);
     }
 
