@@ -21,14 +21,6 @@ class MyBookCopy extends Component {
 
     render() {
         const {bookCopy, isLoading} = this.state;
-        const labels = {
-            0: '0',
-            1: '1',
-            2: '2',
-            3: '3',
-            4: '4',
-            5: '5',
-        };
 
         if (isLoading) {
             return <p>Loading...</p>;
@@ -81,12 +73,13 @@ class MyBookCopy extends Component {
                         )
                     }
                     <Button size="sm" color="primary" tag={Link} to={`/bookCopies/${bookCopy.id}`}>Update pages</Button>{' '}
-                    <Button size="sm" color="primary" tag={Link} to={`/bookCopiesStatus/${bookCopy.id}`}>Change status</Button>
+                    <Button size="sm" color="primary" tag={Link} to={`/bookCopiesStatus/${bookCopy.id}`}>Change status</Button>{' '}
+                    <Button size="sm" color="primary" tag={Link} to={`/bookCopiesShelf/${bookCopy.id}`}>Change shelf</Button>
                 </div>
                 <div id="stars_container">
                     <br/>
                     <br/>
-                    <p><b>Tell us if you liked this book! :)) </b></p>
+                    <p><b>Tell us how much you liked this book: </b></p>
                     <Button color={"info"} tag={Link} to={`/bookCopiesRating/${bookCopy.id}`}>Rate the book!</Button>
                 </div>
             </>
