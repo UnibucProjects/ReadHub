@@ -51,15 +51,11 @@ class MyBookCopy extends Component {
                         <strong>Status:</strong>
                         {' '}
                         {bookCopy.status}
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <Button size="sm" color="primary" tag={Link} to={`/bookCopiesStatus/${bookCopy.id}`}>Change status</Button>
                     </p>
                     <p>
                         <strong>Pages read:</strong>
                         {' '}
                         {bookCopy.pagesRead}/{bookCopy.bookType.pages}
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <Button size="sm" color="primary" tag={Link} to={`/bookCopies/${bookCopy.id}`}>Update pages</Button>
                     </p>
                     {
                         (bookCopy.rating) ? (
@@ -85,6 +81,10 @@ class MyBookCopy extends Component {
                     <br/>
                     <p><b>Tell us how much you liked this book: </b></p>
                     <Button color={"info"} tag={Link} to={`/bookCopiesRating/${bookCopy.id}`}>Rate the book!</Button>
+                    <br/>
+                    <br/>
+                    <p><b>Revisit and share your thoughts on this book! </b></p>
+                    <Button color={"info"} tag={Link} to={`/myNotes/${bookCopy.id}`}>Go to notes!</Button>
                 </div>
             </>
         )
