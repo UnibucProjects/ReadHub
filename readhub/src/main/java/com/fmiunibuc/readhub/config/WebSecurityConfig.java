@@ -14,7 +14,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -64,12 +63,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/myBookCopy/**").permitAll()
                 .antMatchers("/api/test/**").permitAll()
                 .antMatchers("/api/bookCopiesStatus/**").permitAll()
+                .antMatchers("/api/bookCopiesRating/**").permitAll()
                 .antMatchers("/api/libraries/**").permitAll()
                 .antMatchers("/api/library/**").permitAll()
                 .antMatchers("/myLibrary/**").permitAll()
                 .antMatchers("/api/myLibrary/**").permitAll()
                 .antMatchers("/api/shelves/**").permitAll()
+                .antMatchers("/shelves/**").permitAll()
                 .antMatchers("/api/shelf/**").permitAll()
+                .antMatchers("/shelf/**").permitAll()
                 .antMatchers("/api/books/**").permitAll()
                 .antMatchers("/api/book/**").permitAll()
                 .antMatchers("/api/bookCopies/**").permitAll()

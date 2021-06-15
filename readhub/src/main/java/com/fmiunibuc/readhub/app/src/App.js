@@ -25,6 +25,7 @@ import BoardUser from './components/board-user.component';
 import BoardModerator from './components/board-moderator.component';
 import BoardAdmin from './components/board-admin.component';
 import BookCopyStatus from "./BookCopyStatus";
+import BookCopyRating from "./BookCopyRating";
 import MyStats from "./MyStats"
 
 const TITLE = 'ReadHub';
@@ -76,9 +77,12 @@ class App extends Component {
         </Helmet>
         <div>
           <nav className="navbar navbar-expand navbar-dark bg-dark">
-            <Link to="/" className="navbar-brand">
+            {!isAuthenticated && (<Link to="/" className="navbar-brand">
               {TITLE}
-            </Link>
+            </Link>)}
+            {isAuthenticated && (<Link to="/profile" className="navbar-brand">
+              {TITLE}
+            </Link>)}
             <div className="navbar-nav mr-auto">
 
               {isAuthenticated && (
@@ -110,16 +114,16 @@ class App extends Component {
                     </Link>
                   </li>
               )}
-              <li className="nav-item">
+              {showAdminBoard && (<li className="nav-item">
                 <Link to="/books" className="nav-link">
                   Manage books
                 </Link>
-              </li>
-              <li className="nav-item">
+              </li>)}
+              {showAdminBoard && (<li className="nav-item">
                 <Link to="/bookCopies" className="nav-link">
                   Manage book copies
                 </Link>
-              </li>
+              </li>)}
               {showAdminBoard && (
               <li className="nav-item">
                 <Link to="/users" className="nav-link">
@@ -181,6 +185,7 @@ class App extends Component {
               <Route path="/bookCopies/:id" component={BookCopyEdit} />
               <Route path="/addBookToShelf/:id1/:id2" component={MyBookCopy}/>
               <Route path="/bookCopiesStatus/:id" component={BookCopyStatus} />
+              <Route path="/bookCopiesRating/:id" component={BookCopyRating} />
               <Route path="/myBookCopy/:id" component={MyBookCopy} />
               <Route path="/users" exact component={UserList} />
               <Route path="/users/:id" component={UserEdit} />

@@ -1,10 +1,11 @@
 package com.fmiunibuc.readhub.web;
 
-import com.fmiunibuc.readhub.model.*;
+import com.fmiunibuc.readhub.model.Library;
+import com.fmiunibuc.readhub.model.Shelf;
+import com.fmiunibuc.readhub.model.User;
 import com.fmiunibuc.readhub.model.repositories.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.Optional;
-import java.util.Set;
 
 
 @RestController
@@ -63,12 +63,15 @@ public class ShelfController {
 
     @PostMapping("/shelf/{id}")
     ResponseEntity<Shelf> createShelf(@Valid @RequestBody Shelf shelf, @PathVariable Long id) throws URISyntaxException {
-        Optional<Library> library = libraryRepository.findById(id);
-        System.out.println(id);
-        if (library.isPresent())
+        Optional<User> user = userRepository.findById(id);
+        Library library = null;
+        if(user.isPresent()) {
+            library = user.get().getLibrary();
+        }
+        if (library != null)
         {
-            shelf.setLibrary(library.get());
-            library.get().getShelfList().add(shelf);
+            shelf.setLibrary(library);
+            library.getShelfList().add(shelf);
         }
         Shelf result = shelfRepository.save(shelf);
         return ResponseEntity.created(new URI("/api/shelf/" + result.getId()))
@@ -78,6 +81,9 @@ public class ShelfController {
     @PutMapping("/shelf/{id}")
     ResponseEntity<Shelf> updateShelf(@Valid @RequestBody Shelf shelf) {
         log.info("Request to update shelf: {}", shelf);
+        System.out.println("\n\n\n\n\n\n\n\n\n");
+        System.out.println("s-a ajuns la PUT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println("\n\n\n\n\n\n\n\n\n");
         Shelf result = shelfRepository.save(shelf);
         return ResponseEntity.ok().body(result);
     }
