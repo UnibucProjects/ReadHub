@@ -51,6 +51,7 @@ class MyStats extends Component{
                                 {' '}
                                 <Link to={`/myBookCopy/${books[2].id}`}>{books[2].bookType.name}</Link>
                             </h4>
+
                         ) : (
                             <h4>
                                 <strong>My favorite book:</strong>
@@ -61,7 +62,7 @@ class MyStats extends Component{
                     }
                     <br/>
                     {
-                        (books[3].rating) ? (
+                        (books[2].rating) ? (
                             <h4>
                                 <strong>My least favorite book:</strong>
                                 {' '}
