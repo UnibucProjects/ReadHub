@@ -5,6 +5,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import AuthService from './services/auth.service';
+import { Button, Form } from 'reactstrap';
+import { FormGroup } from '@material-ui/core';
 import ShelfEdit from './ShelfEdit';
 import { Button } from 'reactstrap';
 class BookCopyShelf extends Component {
@@ -20,7 +22,7 @@ class BookCopyShelf extends Component {
       item: this.emptyItem,
       chosenShelf: ''
     };
-    //this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -31,12 +33,8 @@ class BookCopyShelf extends Component {
       .then(data => this.setState({shelves: [], item: data}));
     await fetch(`/api/myLibrary/${user.id}`)
       .then((response) => response.json())
-      .then((data) => this.setState({shelves: data, chosenShelf: this.state.item.shelf}));
+      .then((data) => this.setState({shelves: data, chosenShelf: this.state.item.shelf.id}));
 
-    //this.setState({shelves: [], item: item});
-    /*await fetch('api/shelves')
-      .then((response) => response.json())
-      .then((data) => this.setState({ shelves: data, item: item}));*/
   }
 
 
@@ -44,7 +42,7 @@ class BookCopyShelf extends Component {
     event.preventDefault();
     const { shelves, item, chosenShelf } = this.state;
 
-    await fetch('/api/moveBookToShelf/' + item.id + '/' + chosenShelf.id, {
+    await fetch('/api/moveBookToShelf/' + item.id + '/' + chosenShelf.props.value, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -55,37 +53,40 @@ class BookCopyShelf extends Component {
     this.props.history.push('/myBookCopy/' + item.id);
   }
 
+  handleChange (event, value) {
+    event.preventDefault();
+    console.log(this);
+    this.state.chosenShelf = value;
+  }
+
   render() {
     const title = <h3>Change the book shelf using the dropdown menu</h3>;
     const { shelves, item, chosenShelf } = this.state;
-    const ShelfList = () => {return shelves.map((shelf) => {
-       return <MenuItem value={shelf}>{shelf.name}</MenuItem>;
-    })};
 
     const ChooseShelf = () => {
       const { shelves, item, chosenShelf } = this.state;
       //const [value, setValue] = React.useState(item.shelf.id);
-      const handleChange = (event) => {
-        event.preventDefault();
-        this.setState({chosenShelf: event.target.value})
-        console.log("cevaaa");
-      }
+
 
       return (<div>
         {title}
-        <FormControl>
+        <Form onSubmit={this.handleSubmit}>
+          <FormGroup>
           <InputLabel id="demo-simple-select-label">Shelf</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={chosenShelf}
-            onChange={handleChange}
-          >
-            <ShelfList/>
+            <Select
+              value={chosenShelf.id}
+              onChange={this.handleChange}
+            >
+              {shelves.map((shelf) => {
+                return <MenuItem key={shelf.id} value={shelf.id}>{shelf.name}</MenuItem>;
+              })}
+            </Select>
+          </FormGroup>
 
-          </Select>
-          <Button color={"primary"} onClick={this.handleSubmit}>Change shelf </Button>
-        </FormControl>
+          <FormGroup>
+          <Button color={"primary"} type={"submit"}>Change shelf </Button>
+        </FormGroup>
+        </Form>
       </div>);
     }
     return <ChooseShelf/>;
