@@ -7,8 +7,6 @@ import Select from '@material-ui/core/Select';
 import AuthService from './services/auth.service';
 import { Button, Form } from 'reactstrap';
 import { FormGroup } from '@material-ui/core';
-import ShelfEdit from './ShelfEdit';
-import { Button } from 'reactstrap';
 class BookCopyShelf extends Component {
 
   emptyItem = {
