@@ -35,7 +35,7 @@ Design, UML, architecture
 We used git as a source control system. We each have our branches: alex, delia, diana, ioana and stefan. 
 
 # Tests
-We used Jest for JavaScript and JUnit for Java unit testing. 
+We used Jest for JavaScript snapshot testing and JUnit for Java unit testing. 
 
 # Bug Reporting
 Bug reporting is done via Github Actions.
