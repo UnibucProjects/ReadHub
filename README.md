@@ -52,7 +52,7 @@ The build tool of our choice was Maven, as we wanted:
 * for more on how to activate, check the team design document
 
 # Design patterns used
-To be added
+We used a singleton service for our hand-made logging system. 
 
 # Team design document
 Available at https://docs.google.com/document/d/18ozDy5PmWYBgmo5jjHDBkjSLoViKY4q-EurLRpUEE9E/edit?usp=sharing
