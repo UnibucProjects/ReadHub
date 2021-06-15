@@ -80,10 +80,7 @@ public class ShelfController {
 
     @PutMapping("/shelf/{id}")
     ResponseEntity<Shelf> updateShelf(@Valid @RequestBody Shelf shelf) {
-        log.info("Request to update shelf: {}", shelf);
-        System.out.println("\n\n\n\n\n\n\n\n\n");
-        System.out.println("s-a ajuns la PUT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        System.out.println("\n\n\n\n\n\n\n\n\n");
+        System.out.println("Je suis dans le controller");
         Shelf result = shelfRepository.save(shelf);
         return ResponseEntity.ok().body(result);
     }
@@ -91,6 +88,8 @@ public class ShelfController {
     @DeleteMapping("/shelf/{id}")
     public ResponseEntity<?> deleteShelf(@PathVariable Long id) {
         log.info("Request to delete shelf: {}", id);
+        Optional<Shelf> tbd = shelfRepository.findById(id);
+        tbd.get().getLibrary().getShelfList().remove(tbd.get());
         shelfRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }

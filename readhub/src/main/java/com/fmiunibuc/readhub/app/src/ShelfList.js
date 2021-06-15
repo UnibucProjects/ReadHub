@@ -23,7 +23,7 @@ class ShelfList extends Component {
     await fetch(`/api/shelf/${id}`, {
       method: 'DELETE',
       headers: {
-        Accept: 'application/json',
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
     }).then(() => {
