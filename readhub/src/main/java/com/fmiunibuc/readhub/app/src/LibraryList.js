@@ -19,7 +19,7 @@ class LibraryList extends Component {
       .then((response) => response.json())
       .then((data) => this.setState({ libraries: data, isLoading: false }));
 
-    fetch('api/librariesOwners')
+    fetch('/api/librariesOwners')
         .then((response) => response.json())
         .then((data) => this.setState({ librariesOwners: data }));
   }

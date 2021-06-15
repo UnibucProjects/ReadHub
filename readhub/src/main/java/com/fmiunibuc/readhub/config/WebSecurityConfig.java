@@ -64,6 +64,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/addBookToShelf/**").permitAll()
                 .antMatchers("/api/myBookCopy/**").permitAll()
                 .antMatchers("/api/librariesOwners").permitAll()
+                .antMatchers("/librariesOwners").permitAll()
                 .antMatchers("/api/test/**").permitAll()
                 .antMatchers("/api/bookCopiesStatus/**").permitAll()
                 .antMatchers("/api/bookCopiesRating/**").permitAll()
@@ -83,8 +84,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/user/**").permitAll()
                 .antMatchers("/api/myNotes/**").permitAll()
                 .antMatchers("/myNotes/**").permitAll()
-                .antMatchers("/api/notes/**").permitAll()
-                .antMatchers("/notes/**").permitAll()
+                .antMatchers("/api/note/**").permitAll()
+                .antMatchers("/note/**").permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);

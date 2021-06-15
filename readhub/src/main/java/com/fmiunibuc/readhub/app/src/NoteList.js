@@ -26,7 +26,6 @@ class NoteList extends Component {
         if (isLoading) {
             return <p>Loading...</p>;
         }
-        console.log(notes)
         const noteList = notes.map((note) => (
             <div key={note.id}>
                 <br/>
@@ -35,11 +34,6 @@ class NoteList extends Component {
                 <p><i>{note.text}</i></p>
                 <p><small>On page {note.pageNumber}</small></p>
                 <br/>
-                <div>
-                    <ButtonGroup>
-                        <Button size="sm" color="primary" tag={Link} to={`/notes/${this.props.match.params.id}/${note.id}`}>Edit</Button>
-                    </ButtonGroup>
-                </div>
             </div>
         ));
         return (

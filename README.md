@@ -16,6 +16,9 @@
 * As a reader, I want to view my stats (the longest book I read, most liked book, least liked book etc.)
 * As an editor, I want to add books and minimal info about them to the database
 
+# Demo
+The application demo is available in 1080p at: https://drive.google.com/file/d/1KbFGR5DB9fiXH9Fo1DPBhVA-CDH1i_Fp/view?usp=sharing
+
 # Backlog 
 Available at https://trello.com/b/W9Wdh06r/readhub, also in Github projects for easier tracking of small tasks
 

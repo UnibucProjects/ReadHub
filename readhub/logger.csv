@@ -18,3 +18,351 @@ Request to get book copy 1, Tue Jun 15 18:40:55 EEST 2021
 Request to get all book copies, Tue Jun 15 18:41:00 EEST 2021
 Request to get library of current user, Tue Jun 15 18:41:03 EEST 2021
 Request to get all books, Tue Jun 15 18:41:06 EEST 2021
+Request to get library of current user, Tue Jun 15 19:10:05 EEST 2021
+Request to create shelf, Tue Jun 15 19:10:13 EEST 2021
+Request to get library of current user, Tue Jun 15 19:10:13 EEST 2021
+Request to get library of current user, Tue Jun 15 19:10:18 EEST 2021
+Request to delete shelf 45, Tue Jun 15 19:10:22 EEST 2021
+Request to get library of current user, Tue Jun 15 19:10:24 EEST 2021
+Request to get shelf 14, Tue Jun 15 19:10:27 EEST 2021
+Request to get library of current user, Tue Jun 15 19:10:30 EEST 2021
+Request to get shelf 46, Tue Jun 15 19:10:32 EEST 2021
+Request to update shelf 46, Tue Jun 15 19:10:36 EEST 2021
+Request to get library of current user, Tue Jun 15 19:10:36 EEST 2021
+Request to delete shelf 46, Tue Jun 15 19:10:38 EEST 2021
+Request to delete shelf 47, Tue Jun 15 19:10:39 EEST 2021
+Request to get library of current user, Tue Jun 15 19:31:19 EEST 2021
+Request to create shelf, Tue Jun 15 19:31:42 EEST 2021
+Request to get library of current user, Tue Jun 15 19:31:42 EEST 2021
+Request to get library of current user, Tue Jun 15 19:32:45 EEST 2021
+Request to get library of current user, Tue Jun 15 19:33:41 EEST 2021
+Request to create shelf, Tue Jun 15 19:33:49 EEST 2021
+Request to get library of current user, Tue Jun 15 19:33:49 EEST 2021
+Request to get all books, Tue Jun 15 19:39:08 EEST 2021
+Request to create book, Tue Jun 15 19:39:38 EEST 2021
+Request to get all books, Tue Jun 15 19:39:38 EEST 2021
+Request to get all shelves, Tue Jun 15 19:40:14 EEST 2021
+Request to get all shelves, Tue Jun 15 19:47:18 EEST 2021
+Request to get all shelves, Tue Jun 15 19:47:25 EEST 2021
+Request to get all shelves, Tue Jun 15 19:47:36 EEST 2021
+Request to get all shelves, Tue Jun 15 19:47:42 EEST 2021
+Request to get all shelves, Tue Jun 15 19:48:20 EEST 2021
+Request to get shelf 19, Tue Jun 15 19:49:46 EEST 2021
+Request to get all shelves, Tue Jun 15 19:49:47 EEST 2021
+Request to get all shelves, Tue Jun 15 19:50:34 EEST 2021
+Request to get all shelves, Tue Jun 15 19:51:14 EEST 2021
+Request to get all shelves, Tue Jun 15 19:53:14 EEST 2021
+Request to get all shelves, Tue Jun 15 19:53:37 EEST 2021
+Request to get all shelves, Tue Jun 15 19:53:44 EEST 2021
+Request to get library of current user, Tue Jun 15 18:39:06 EEST 2021
+Request to get shelf 20, Tue Jun 15 18:39:08 EEST 2021
+Request to get book copy 23, Tue Jun 15 18:39:08 EEST 2021
+Request to get book copy 23, Tue Jun 15 18:39:10 EEST 2021
+Request to get book copy 23, Tue Jun 15 18:39:18 EEST 2021
+Request to get library of current user, Tue Jun 15 18:40:38 EEST 2021
+Request to get shelf 1, Tue Jun 15 18:40:39 EEST 2021
+Request to get book copy 1, Tue Jun 15 18:40:46 EEST 2021
+Request to get book copy 1, Tue Jun 15 18:40:55 EEST 2021
+Request to get all book copies, Tue Jun 15 18:41:00 EEST 2021
+Request to get library of current user, Tue Jun 15 18:41:03 EEST 2021
+Request to get all books, Tue Jun 15 18:41:06 EEST 2021
+Request to get library of current user, Tue Jun 15 19:59:22 EEST 2021
+Request to get all libraries, Tue Jun 15 19:59:42 EEST 2021
+Request to get all shelves, Tue Jun 15 19:59:44 EEST 2021
+Request to get all shelves, Tue Jun 15 20:06:17 EEST 2021
+Request to get library of current user, Tue Jun 15 20:07:25 EEST 2021
+Request to get all shelves, Tue Jun 15 20:07:37 EEST 2021
+Request to get all books, Tue Jun 15 20:09:08 EEST 2021
+Request to get library of current user, Tue Jun 15 20:09:11 EEST 2021
+Request to get shelf 15, Tue Jun 15 20:09:13 EEST 2021
+Request to get book copy 39, Tue Jun 15 20:09:15 EEST 2021
+Request to get book copy 39, Tue Jun 15 20:09:19 EEST 2021
+Request to get library of current user, Tue Jun 15 20:09:20 EEST 2021
+Request to get book copy 39, Tue Jun 15 20:09:21 EEST 2021
+Request to get shelf 15, Tue Jun 15 20:09:22 EEST 2021
+Request to get book copy 39, Tue Jun 15 20:09:23 EEST 2021
+Request to get book copy 39, Tue Jun 15 20:09:24 EEST 2021
+Request to get library of current user, Tue Jun 15 20:09:24 EEST 2021
+Request to get book copy 39, Tue Jun 15 20:09:28 EEST 2021
+Request to get library of current user, Tue Jun 15 20:09:30 EEST 2021
+Request to get shelf 16, Tue Jun 15 20:09:32 EEST 2021
+Request to get book copy 39, Tue Jun 15 20:09:35 EEST 2021
+Request to get book copy 39, Tue Jun 15 20:09:39 EEST 2021
+Request to update book copy 39, Tue Jun 15 20:09:43 EEST 2021
+Request to get book copy 39, Tue Jun 15 20:09:44 EEST 2021
+Request to get all libraries, Tue Jun 15 20:24:25 EEST 2021
+Request to get all shelves, Tue Jun 15 20:24:26 EEST 2021
+Request to get stats of user 1, Tue Jun 15 20:25:38 EEST 2021
+Request to get all book copies, Tue Jun 15 20:25:41 EEST 2021
+Request to get book copy 49, Tue Jun 15 20:27:29 EEST 2021
+Request to get book copy 49, Tue Jun 15 20:27:32 EEST 2021
+Request to get all book copies, Tue Jun 15 20:27:33 EEST 2021
+Request to get library of current user, Tue Jun 15 20:44:07 EEST 2021
+Request to create shelf, Tue Jun 15 20:44:35 EEST 2021
+Request to get library of current user, Tue Jun 15 20:44:35 EEST 2021
+Request to get shelf 75, Tue Jun 15 20:44:38 EEST 2021
+Request to update shelf 75, Tue Jun 15 20:44:54 EEST 2021
+Request to get library of current user, Tue Jun 15 20:44:54 EEST 2021
+Request to delete shelf 75, Tue Jun 15 20:44:56 EEST 2021
+Request to get library of current user, Tue Jun 15 20:44:57 EEST 2021
+Request to get shelf 15, Tue Jun 15 20:44:59 EEST 2021
+Request to get library of current user, Tue Jun 15 20:45:00 EEST 2021
+Request to get shelf 14, Tue Jun 15 20:45:01 EEST 2021
+Request to get library of current user, Tue Jun 15 20:45:02 EEST 2021
+Request to get stats of user 4, Tue Jun 15 20:45:07 EEST 2021
+Request to get all books, Tue Jun 15 20:45:20 EEST 2021
+Request to get library of current user, Tue Jun 15 20:45:24 EEST 2021
+Request to get shelf 16, Tue Jun 15 20:45:25 EEST 2021
+Request to get library of current user, Tue Jun 15 20:45:26 EEST 2021
+Request to get all books, Tue Jun 15 20:45:27 EEST 2021
+Request to add book 38 to library of user 4, Tue Jun 15 20:45:47 EEST 2021
+Request to get library of current user, Tue Jun 15 20:46:00 EEST 2021
+Request to get shelf 15, Tue Jun 15 20:46:03 EEST 2021
+Request to get book copy 76, Tue Jun 15 20:46:13 EEST 2021
+Request to get book copy 76, Tue Jun 15 20:46:16 EEST 2021
+Request to update book copy 76, Tue Jun 15 20:46:28 EEST 2021
+Request to get book copy 76, Tue Jun 15 20:46:28 EEST 2021
+Request to get book copy 76, Tue Jun 15 20:46:31 EEST 2021
+Request to update book copy 76, Tue Jun 15 20:46:35 EEST 2021
+Request to get book copy 76, Tue Jun 15 20:46:36 EEST 2021
+Request to get book copy 76, Tue Jun 15 20:46:45 EEST 2021
+Request to get library of current user, Tue Jun 15 20:46:45 EEST 2021
+Request to get book copy 76, Tue Jun 15 20:46:54 EEST 2021
+Request to get book copy 76, Tue Jun 15 20:47:04 EEST 2021
+Request to update book copy 76, Tue Jun 15 20:47:06 EEST 2021
+Request to get book copy 76, Tue Jun 15 20:47:07 EEST 2021
+Request to get library of current user, Tue Jun 15 20:47:37 EEST 2021
+Request to get shelf 16, Tue Jun 15 20:47:42 EEST 2021
+Request to get library of current user, Tue Jun 15 20:47:46 EEST 2021
+Request to get shelf 15, Tue Jun 15 20:47:48 EEST 2021
+Request to get library of current user, Tue Jun 15 20:47:49 EEST 2021
+Request to get library of current user, Tue Jun 15 20:48:45 EEST 2021
+Request to get all books, Tue Jun 15 20:49:16 EEST 2021
+Request to get all books, Tue Jun 15 20:50:34 EEST 2021
+Request to create book, Tue Jun 15 20:51:01 EEST 2021
+Request to get all books, Tue Jun 15 20:51:01 EEST 2021
+Request to get book 78, Tue Jun 15 20:51:04 EEST 2021
+Request to update book 78, Tue Jun 15 20:51:32 EEST 2021
+Request to get all books, Tue Jun 15 20:51:32 EEST 2021
+Request to delete book 78, Tue Jun 15 20:51:35 EEST 2021
+Request to get all books, Tue Jun 15 20:51:37 EEST 2021
+Request to get all libraries, Tue Jun 15 20:51:56 EEST 2021
+Request to get library 5, Tue Jun 15 20:52:14 EEST 2021
+Request to update library 5, Tue Jun 15 20:52:20 EEST 2021
+Request to get all libraries, Tue Jun 15 20:52:20 EEST 2021
+Request to create library, Tue Jun 15 20:52:27 EEST 2021
+Request to get all libraries, Tue Jun 15 20:52:27 EEST 2021
+Request to delete library 79, Tue Jun 15 20:52:30 EEST 2021
+Request to get all libraries, Tue Jun 15 20:52:31 EEST 2021
+Request to get all shelves, Tue Jun 15 20:53:50 EEST 2021
+Request to create shelf, Tue Jun 15 20:54:20 EEST 2021
+Request to get library of current user, Tue Jun 15 20:54:20 EEST 2021
+Request to delete shelf 80, Tue Jun 15 20:54:25 EEST 2021
+Request to get all shelves, Tue Jun 15 20:54:28 EEST 2021
+Request to get shelf 27, Tue Jun 15 20:54:31 EEST 2021
+Request to get library of current user, Tue Jun 15 20:54:37 EEST 2021
+Request to get all shelves, Tue Jun 15 20:54:40 EEST 2021
+Request to delete shelf 3, Tue Jun 15 20:54:57 EEST 2021
+Request to get all shelves, Tue Jun 15 20:54:58 EEST 2021
+Request to get shelf 4, Tue Jun 15 20:55:00 EEST 2021
+Request to update shelf 4, Tue Jun 15 20:55:04 EEST 2021
+Request to get library of current user, Tue Jun 15 20:55:04 EEST 2021
+Request to get all shelves, Tue Jun 15 20:55:07 EEST 2021
+Request to get shelf 7, Tue Jun 15 20:55:09 EEST 2021
+Request to update shelf 7, Tue Jun 15 20:55:13 EEST 2021
+Request to get library of current user, Tue Jun 15 20:55:13 EEST 2021
+Request to get all libraries, Tue Jun 15 20:55:15 EEST 2021
+Request to get all shelves, Tue Jun 15 20:55:19 EEST 2021
+Request to get shelf 27, Tue Jun 15 20:55:30 EEST 2021
+Request to get library of current user, Tue Jun 15 20:55:34 EEST 2021
+Request to get all shelves, Tue Jun 15 20:55:36 EEST 2021
+Request to get shelf 4, Tue Jun 15 20:55:42 EEST 2021
+Request to update shelf 4, Tue Jun 15 20:55:46 EEST 2021
+Request to get library of current user, Tue Jun 15 20:55:46 EEST 2021
+Request to get all shelves, Tue Jun 15 20:55:48 EEST 2021
+Request to get stats of user 1, Tue Jun 15 20:56:05 EEST 2021
+Request to get all books, Tue Jun 15 20:56:06 EEST 2021
+Request to get all book copies, Tue Jun 15 20:56:09 EEST 2021
+Request to delete book copy 52, Tue Jun 15 20:56:38 EEST 2021
+Request to get all book copies, Tue Jun 15 20:56:40 EEST 2021
+Request to get library of current user, Tue Jun 15 21:04:14 EEST 2021
+Request to get library of current user, Tue Jun 15 21:55:13 EEST 2021
+Request to create shelf, Tue Jun 15 21:55:25 EEST 2021
+Request to get library of current user, Tue Jun 15 21:55:26 EEST 2021
+Request to get shelf 85, Tue Jun 15 21:55:29 EEST 2021
+Request to update shelf 85, Tue Jun 15 21:55:39 EEST 2021
+Request to get library of current user, Tue Jun 15 21:55:39 EEST 2021
+Request to delete shelf 85, Tue Jun 15 21:55:43 EEST 2021
+Request to get stats of user 4, Tue Jun 15 21:55:48 EEST 2021
+Request to get all books, Tue Jun 15 21:55:54 EEST 2021
+Request to add book 36 to library of user 4, Tue Jun 15 21:56:00 EEST 2021
+Request to get library of current user, Tue Jun 15 21:56:04 EEST 2021
+Request to get shelf 15, Tue Jun 15 21:56:08 EEST 2021
+Request to get book copy 86, Tue Jun 15 21:56:13 EEST 2021
+Request to get book copy 86, Tue Jun 15 21:56:16 EEST 2021
+Request to update book copy 86, Tue Jun 15 21:56:22 EEST 2021
+Request to get book copy 86, Tue Jun 15 21:56:23 EEST 2021
+Request to get book copy 86, Tue Jun 15 21:56:28 EEST 2021
+Request to update book copy 86, Tue Jun 15 21:56:41 EEST 2021
+Request to get book copy 86, Tue Jun 15 21:56:41 EEST 2021
+Request to get book copy 86, Tue Jun 15 21:56:44 EEST 2021
+Request to update book copy 86, Tue Jun 15 21:56:50 EEST 2021
+Request to get book copy 86, Tue Jun 15 21:56:51 EEST 2021
+Request to get library of current user, Tue Jun 15 21:57:25 EEST 2021
+Request to get shelf 15, Tue Jun 15 21:57:30 EEST 2021
+Request to get book copy 86, Tue Jun 15 21:57:34 EEST 2021
+Request to get book copy 86, Tue Jun 15 21:57:39 EEST 2021
+Request to get library of current user, Tue Jun 15 21:57:39 EEST 2021
+Request to get book copy 86, Tue Jun 15 21:57:49 EEST 2021
+Request to get library of current user, Tue Jun 15 21:57:52 EEST 2021
+Request to get shelf 16, Tue Jun 15 21:57:56 EEST 2021
+Request to get library of current user, Tue Jun 15 21:58:32 EEST 2021
+Request to get all books, Tue Jun 15 21:58:49 EEST 2021
+Request to create book, Tue Jun 15 21:59:10 EEST 2021
+Request to get all books, Tue Jun 15 21:59:10 EEST 2021
+Request to get book 92, Tue Jun 15 21:59:16 EEST 2021
+Request to update book 92, Tue Jun 15 21:59:29 EEST 2021
+Request to get all books, Tue Jun 15 21:59:30 EEST 2021
+Request to delete book 92, Tue Jun 15 21:59:38 EEST 2021
+Request to get all libraries, Tue Jun 15 21:59:57 EEST 2021
+Request to get all libraries, Tue Jun 15 22:01:45 EEST 2021
+Request to get all shelves, Tue Jun 15 22:02:03 EEST 2021
+Request to get all shelves, Tue Jun 15 22:03:05 EEST 2021
+Request to get all libraries, Tue Jun 15 22:03:09 EEST 2021
+Request to get all libraries, Tue Jun 15 22:03:10 EEST 2021
+Request to get all libraries, Tue Jun 15 22:03:11 EEST 2021
+Request to get all libraries, Tue Jun 15 22:03:12 EEST 2021
+Request to get all libraries, Tue Jun 15 22:03:12 EEST 2021
+Request to get all libraries, Tue Jun 15 22:03:13 EEST 2021
+Request to get all shelves, Tue Jun 15 22:03:58 EEST 2021
+Request to get all libraries, Tue Jun 15 22:05:03 EEST 2021
+Request to get library of current user, Tue Jun 15 22:06:58 EEST 2021
+Request to get all libraries, Tue Jun 15 22:06:59 EEST 2021
+Request to get all libraries, Tue Jun 15 22:07:35 EEST 2021
+Request to get all libraries, Tue Jun 15 22:07:42 EEST 2021
+Request to get all libraries, Tue Jun 15 22:08:33 EEST 2021
+Request to get all libraries, Tue Jun 15 22:08:50 EEST 2021
+Request to get all libraries, Tue Jun 15 22:09:42 EEST 2021
+Request to get all libraries, Tue Jun 15 22:10:47 EEST 2021
+Request to get all libraries, Tue Jun 15 22:10:55 EEST 2021
+Request to get all libraries, Tue Jun 15 22:11:25 EEST 2021
+Request to get all libraries, Tue Jun 15 22:12:39 EEST 2021
+Request to get all libraries, Tue Jun 15 22:12:47 EEST 2021
+Request to get library of current user, Tue Jun 15 22:13:07 EEST 2021
+Request to get all libraries, Tue Jun 15 22:13:35 EEST 2021
+Request to get all libraries, Tue Jun 15 22:14:03 EEST 2021
+Request to get library of current user, Tue Jun 15 22:15:15 EEST 2021
+Request to create shelf, Tue Jun 15 22:15:26 EEST 2021
+Request to get library of current user, Tue Jun 15 22:15:26 EEST 2021
+Request to get shelf 97, Tue Jun 15 22:15:31 EEST 2021
+Request to update shelf 97, Tue Jun 15 22:15:37 EEST 2021
+Request to get library of current user, Tue Jun 15 22:15:37 EEST 2021
+Request to delete shelf 97, Tue Jun 15 22:15:42 EEST 2021
+Request to get stats of user 4, Tue Jun 15 22:15:47 EEST 2021
+Request to get all books, Tue Jun 15 22:15:52 EEST 2021
+Request to add book 37 to library of user 4, Tue Jun 15 22:15:57 EEST 2021
+Request to get library of current user, Tue Jun 15 22:16:02 EEST 2021
+Request to get shelf 15, Tue Jun 15 22:16:07 EEST 2021
+Request to get book copy 98, Tue Jun 15 22:16:11 EEST 2021
+Request to get book copy 98, Tue Jun 15 22:16:16 EEST 2021
+Request to update book copy 98, Tue Jun 15 22:16:21 EEST 2021
+Request to get book copy 98, Tue Jun 15 22:16:21 EEST 2021
+Request to get book copy 98, Tue Jun 15 22:16:26 EEST 2021
+Request to update book copy 98, Tue Jun 15 22:16:34 EEST 2021
+Request to get book copy 98, Tue Jun 15 22:16:35 EEST 2021
+Request to get book copy 98, Tue Jun 15 22:16:38 EEST 2021
+Request to update book copy 98, Tue Jun 15 22:16:44 EEST 2021
+Request to get book copy 98, Tue Jun 15 22:16:44 EEST 2021
+Request to get library of current user, Tue Jun 15 22:17:14 EEST 2021
+Request to get shelf 15, Tue Jun 15 22:17:18 EEST 2021
+Request to get book copy 98, Tue Jun 15 22:17:22 EEST 2021
+Request to get book copy 98, Tue Jun 15 22:17:27 EEST 2021
+Request to get library of current user, Tue Jun 15 22:17:27 EEST 2021
+Request to get book copy 98, Tue Jun 15 22:17:35 EEST 2021
+Request to get library of current user, Tue Jun 15 22:17:39 EEST 2021
+Request to get shelf 16, Tue Jun 15 22:17:43 EEST 2021
+Request to get library of current user, Tue Jun 15 22:18:29 EEST 2021
+Request to get all books, Tue Jun 15 22:18:48 EEST 2021
+Request to create book, Tue Jun 15 22:19:15 EEST 2021
+Request to get all books, Tue Jun 15 22:19:15 EEST 2021
+Request to get book 104, Tue Jun 15 22:19:21 EEST 2021
+Request to update book 104, Tue Jun 15 22:19:33 EEST 2021
+Request to get all books, Tue Jun 15 22:19:33 EEST 2021
+Request to delete book 104, Tue Jun 15 22:19:39 EEST 2021
+Request to get all libraries, Tue Jun 15 22:19:57 EEST 2021
+Request to create library, Tue Jun 15 22:20:14 EEST 2021
+Request to get all libraries, Tue Jun 15 22:20:15 EEST 2021
+Request to get library 105, Tue Jun 15 22:20:21 EEST 2021
+Request to get all libraries, Tue Jun 15 22:20:28 EEST 2021
+Request to delete library 105, Tue Jun 15 22:20:34 EEST 2021
+Request to get all libraries, Tue Jun 15 22:20:43 EEST 2021
+Request to create library, Tue Jun 15 22:21:19 EEST 2021
+Request to get all libraries, Tue Jun 15 22:21:19 EEST 2021
+Request to delete library 106, Tue Jun 15 22:21:22 EEST 2021
+Request to get all libraries, Tue Jun 15 22:21:25 EEST 2021
+Request to get all libraries, Tue Jun 15 22:23:30 EEST 2021
+Request to get library 100, Tue Jun 15 22:23:34 EEST 2021
+Request to update library 100, Tue Jun 15 22:23:37 EEST 2021
+Request to get all libraries, Tue Jun 15 22:23:38 EEST 2021
+Request to get library 100, Tue Jun 15 22:23:44 EEST 2021
+Request to update library 100, Tue Jun 15 22:23:49 EEST 2021
+Request to get all libraries, Tue Jun 15 22:23:49 EEST 2021
+Request to get all shelves, Tue Jun 15 22:23:50 EEST 2021
+Request to get all libraries, Tue Jun 15 22:26:11 EEST 2021
+Request to get all libraries, Tue Jun 15 22:26:26 EEST 2021
+Request to get all libraries, Tue Jun 15 22:26:40 EEST 2021
+Request to get all libraries, Tue Jun 15 22:26:42 EEST 2021
+Request to get all shelves, Tue Jun 15 22:26:44 EEST 2021
+Request to get stats of user 1, Tue Jun 15 22:26:50 EEST 2021
+Request to get all books, Tue Jun 15 22:26:50 EEST 2021
+Request to get all book copies, Tue Jun 15 22:26:52 EEST 2021
+Request to get all libraries, Tue Jun 15 22:26:55 EEST 2021
+Request to get library of current user, Tue Jun 15 22:26:56 EEST 2021
+Request to get all libraries, Tue Jun 15 22:26:57 EEST 2021
+Request to get library of current user, Tue Jun 15 22:30:26 EEST 2021
+Request to create shelf, Tue Jun 15 22:30:38 EEST 2021
+Request to get library of current user, Tue Jun 15 22:30:38 EEST 2021
+Request to get shelf 107, Tue Jun 15 22:30:42 EEST 2021
+Request to update shelf 107, Tue Jun 15 22:30:49 EEST 2021
+Request to get library of current user, Tue Jun 15 22:30:49 EEST 2021
+Request to delete shelf 107, Tue Jun 15 22:30:54 EEST 2021
+Request to get stats of user 4, Tue Jun 15 22:30:59 EEST 2021
+Request to get all books, Tue Jun 15 22:31:05 EEST 2021
+Request to add book 65 to library of user 4, Tue Jun 15 22:31:11 EEST 2021
+Request to get library of current user, Tue Jun 15 22:31:16 EEST 2021
+Request to get shelf 15, Tue Jun 15 22:31:21 EEST 2021
+Request to get book copy 108, Tue Jun 15 22:31:24 EEST 2021
+Request to get book copy 108, Tue Jun 15 22:31:30 EEST 2021
+Request to update book copy 108, Tue Jun 15 22:31:35 EEST 2021
+Request to get book copy 108, Tue Jun 15 22:31:36 EEST 2021
+Request to get book copy 108, Tue Jun 15 22:31:40 EEST 2021
+Request to update book copy 108, Tue Jun 15 22:31:48 EEST 2021
+Request to get book copy 108, Tue Jun 15 22:31:48 EEST 2021
+Request to get book copy 108, Tue Jun 15 22:31:53 EEST 2021
+Request to update book copy 108, Tue Jun 15 22:32:01 EEST 2021
+Request to get book copy 108, Tue Jun 15 22:32:02 EEST 2021
+Request to get library of current user, Tue Jun 15 22:32:34 EEST 2021
+Request to get shelf 15, Tue Jun 15 22:32:38 EEST 2021
+Request to get book copy 108, Tue Jun 15 22:32:40 EEST 2021
+Request to get book copy 108, Tue Jun 15 22:32:44 EEST 2021
+Request to get library of current user, Tue Jun 15 22:32:44 EEST 2021
+Request to get book copy 108, Tue Jun 15 22:32:53 EEST 2021
+Request to get library of current user, Tue Jun 15 22:32:57 EEST 2021
+Request to get shelf 16, Tue Jun 15 22:32:59 EEST 2021
+Request to get library of current user, Tue Jun 15 22:33:40 EEST 2021
+Request to get all books, Tue Jun 15 22:34:02 EEST 2021
+Request to create book, Tue Jun 15 22:34:22 EEST 2021
+Request to get all books, Tue Jun 15 22:34:22 EEST 2021
+Request to get book 114, Tue Jun 15 22:34:30 EEST 2021
+Request to update book 114, Tue Jun 15 22:34:41 EEST 2021
+Request to get all books, Tue Jun 15 22:34:41 EEST 2021
+Request to delete book 114, Tue Jun 15 22:34:48 EEST 2021
+Request to get all libraries, Tue Jun 15 22:35:10 EEST 2021
+Request to delete library 110, Tue Jun 15 22:35:21 EEST 2021
+Request to get all shelves, Tue Jun 15 22:35:27 EEST 2021
+Request to get shelf 3, Tue Jun 15 22:35:39 EEST 2021
+Request to update shelf 3, Tue Jun 15 22:35:44 EEST 2021
+Request to get library of current user, Tue Jun 15 22:35:44 EEST 2021
+Request to delete shelf 3, Tue Jun 15 22:35:55 EEST 2021
+Request to get all book copies, Tue Jun 15 22:35:59 EEST 2021
+Request to delete book copy 76, Tue Jun 15 22:36:04 EEST 2021
