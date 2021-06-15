@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import AuthService from "./services/auth.service";
+import "./App.css";
 
 
 class ShelfEdit extends Component {
@@ -38,16 +39,10 @@ class ShelfEdit extends Component {
     async handleSubmit(event) {
         event.preventDefault();
         const {item} = this.state;
+        console.log(item);
+        console.log(JSON.stringify(item));
         const user = AuthService.getCurrentUser();
-        await fetch('/api/shelf/' + user.library_id, {
-            method: (item.id) ? 'PUT' : 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(item),
-        });
-        // await fetch('/api/shelf' + (item.id ? '/' + item.id : ''), {
+        // await fetch('/api/shelf/' + user.id, {
         //     method: (item.id) ? 'PUT' : 'POST',
         //     headers: {
         //         'Accept': 'application/json',
@@ -55,12 +50,21 @@ class ShelfEdit extends Component {
         //     },
         //     body: JSON.stringify(item),
         // });
-        this.props.history.push('/myLibrary/' + user.library_id);
+        await fetch('/api/shelf/' + (item.id ? item.id : user.id), {
+            method: (item.id) ? 'PUT' : 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(item),
+        });
+        alert("The shelf name was edited!");
+        this.props.history.push('/myLibrary/' + user.id);
     }
 
     render() {
         const {item} = this.state;
-        const title = <h2>{item.id ? 'Edit Shelf' : 'Add Shelf'}</h2>;
+        const title = <h2>{item.id ? 'Edit Shelf Name' : 'Add Shelf'}</h2>;
         const user = AuthService.getCurrentUser();
         console.log(user);
         return <div>
@@ -69,7 +73,7 @@ class ShelfEdit extends Component {
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
                         <Label for="name">Name</Label>
-                        <Input type="text" name="name" id="name" value={item.name || ''}
+                        <Input type="text" name="name" className="name" value={item.name || ''}
                                onChange={this.handleChange} autoComplete="name"/>
                     </FormGroup>
                     <FormGroup>
@@ -77,7 +81,7 @@ class ShelfEdit extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Button color="primary" type="submit">Save</Button>{' '}
-                        <Button color="secondary" tag={Link} to={"/myLibrary/" + user.library}>Cancel</Button>
+                        <Button color="secondary" tag={Link} to={"/myLibrary/" + user.id}>Cancel</Button>
                     </FormGroup>
                 </Form>
             </Container>

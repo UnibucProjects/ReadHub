@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {
   Button, ButtonGroup, Container, Table,
 } from 'reactstrap';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import './App.css';
 
 class MyLibrary extends Component {
   constructor(props) {
@@ -49,8 +50,9 @@ class MyLibrary extends Component {
           <td style={{ whiteSpace: 'nowrap' }}><Link to={`/shelf/${shelf.id}`}>{shelf.name}</Link></td>
           <td>
             <ButtonGroup>
-              <Button size="sm" color="primary" tag={Link} to={`/shelves/${shelf.id}`}>Edit</Button>
-              <Button size="sm" color="danger" onClick={() => this.remove(shelf.id)}>Delete</Button>
+              <Button className={"action_button"} size="sm" color="primary" tag={Link} to={`/shelves/${shelf.id}`}>Edit</Button>
+              &nbsp; &nbsp;
+              <Button className={"action_button"} size="sm" color="danger" onClick={() => this.remove(shelf.id)}>Delete</Button>
             </ButtonGroup>
           </td>
         </tr>
@@ -58,17 +60,19 @@ class MyLibrary extends Component {
     return (
         <div>
           <Container fluid>
-            <div>
+              <br/>
+            <div id={"library_title"}>
                 <div className="float-right">
                     <Button color="success" tag={Link} to="/shelves/new">Add Shelf</Button>
                 </div>
-                <h2>My shelves</h2>
+
+                <h2>My Library</h2>
             </div>
-            <Table className="mt-4">
+            <Table id={"shelves_table"} className="mt-4">
               <thead>
               <tr>
-                <th width="20%">Name</th>
-                <th width="10%">Actions</th>
+                <th width="50%">Name</th>
+                <th width="50%">Actions</th>
               </tr>
               </thead>
               <tbody>

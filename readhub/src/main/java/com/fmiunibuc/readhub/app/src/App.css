@@ -73,3 +73,25 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+#rating_button {
+  margin-top: 5px;
+}
+
+.action_button {
+  width: 60px;
+  border-radius: 5px;
+}
+
+#shelves_table {
+  width: 700px;
+  text-align: center;
+}
+
+#library_title {
+  width: 700px;
+}
+
+.name {
+  width: 300px;
+}

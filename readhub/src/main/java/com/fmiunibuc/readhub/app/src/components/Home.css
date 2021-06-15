@@ -1,0 +1,52 @@
+body::after {
+    content: "";
+    background-image: url("./images/books.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: -1;
+}
+
+.home_button {
+    background-color: #00cc99;
+    width: 80px;
+    color: black;
+}
+
+#home_buttons {
+    float: right;
+}
+
+#home_div {
+    background-color: #99bbff;
+}
+
+#login_div {
+    background-color: #ffffcc;
+    border-radius: 20px;
+}
+
+#signup_div {
+    background-color: #ffffcc;
+    border-radius: 20px;
+}
+
+#profile_header {
+    background-color: springgreen;
+}
+
+.library_button {
+    width: 170px;
+    color: black;
+    background-color: #fff400;
+    border-color: #fff400;
+}
+
+#library_buttons {
+    float: right;
+}

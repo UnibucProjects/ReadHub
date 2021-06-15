@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import AuthService from '../services/auth.service';
+import './Home.css';
+import {Button} from "reactstrap";
 
 export default class Profile extends Component {
   constructor(props) {
@@ -32,39 +34,26 @@ export default class Profile extends Component {
         {(this.state.userReady)
           ? (
             <div>
-              <header className="jumbotron">
+              <header className="jumbotron" id={"profile_header"}>
                 <h3>
-                  <strong>{currentUser.username}</strong>
-                  {' '}
-                  Profile
+                  <strong>Hi, {currentUser.username}!</strong>
                 </h3>
-              </header>
-              <p>
-                <strong>Token:</strong>
-                {' '}
-                {currentUser.accessToken.substring(0, 20)}
-                {' '}
-                ...
-                {' '}
-                {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
-              </p>
-              <p>
-                <strong>Id:</strong>
-                {' '}
-                {currentUser.id}
-              </p>
-              <p>
-                <strong>Email:</strong>
-                {' '}
-                {currentUser.email}
-              </p>
+                <h4>We are happy you came back! &nbsp; What would you like to read today?</h4>
 
-              <strong>Authorities:</strong>
-              <ul>
-                {currentUser.roles
-                // eslint-disable-next-line react/no-array-index-key
-                            && currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-              </ul>
+                <div id={"library_buttons"}>
+                  <Button className={"library_button"} tag={Link} to={"/myLibrary/" + currentUser.id}>Go to my library</Button>
+                  &nbsp; &nbsp; &nbsp;
+                  <Button className={"library_button"} tag={Link} to={"/books"}>Discover new books</Button>
+                </div>
+              </header>
+              <br/>
+              <div>
+                <h3>This is our recommendation!</h3>
+                <p>To be added :))</p>
+              </div>
+
+
+
             </div>
           ) : null}
       </div>
