@@ -41,7 +41,7 @@ We used git as a source control system. We each have our branches: alex, delia, 
 We used Jest for JavaScript snapshot testing and JUnit for Java unit testing. 
 
 # Bug Reporting
-Bug reporting is done via Github Actions.
+Bug reporting is done via Github Issues.
 
 # Build tool
 The build tool of our choice was Maven, as we wanted:
