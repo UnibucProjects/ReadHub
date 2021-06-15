@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import AuthService from './services/auth.service';
 import { Button, Form } from 'reactstrap';
@@ -63,7 +62,6 @@ class BookCopyShelf extends Component {
 
     const ChooseShelf = () => {
       const { shelves, item, chosenShelf } = this.state;
-      //const [value, setValue] = React.useState(item.shelf.id);
 
 
       return (<div>

@@ -42,7 +42,7 @@ export default class Home extends Component {
             <br/>
             <h5>Are you looking for a friendly place where you can track your reading progress and discover new books?</h5>
             <h5>Well, you are in the right place!</h5>
-            <h5> Register now, it's free! :))</h5>
+            <h5> Register now, it's free! </h5>
 
             <div id={"home_buttons"}>
               <Button className={"home_button"} tag={ Link } to={"/login"}>Login</Button>
